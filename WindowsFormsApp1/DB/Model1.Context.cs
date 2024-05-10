@@ -13,10 +13,10 @@ namespace WindowsFormsApp1.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GymEntities : DbContext
+    public partial class GymEntities1 : DbContext
     {
-        public GymEntities()
-            : base("name=GymEntities")
+        public GymEntities1()
+            : base("name=GymEntities1")
         {
         }
     
