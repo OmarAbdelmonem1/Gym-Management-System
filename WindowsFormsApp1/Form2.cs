@@ -7,27 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.DB;
+
 
 namespace WindowsFormsApp1
 {
     public partial class Form2 : Form
     {
-        GymEntities1 db = new GymEntities1();
+      
         public Form2()
         {
             InitializeComponent();
         }
-        /*
-        private void button1_Click(object sender, EventArgs e)
-        {
-            User obj = new User();
-            obj.name = txtname.Text;
-            db.Users.Add(obj);
-            db.SaveChanges();
-
-        }
-        */
+      
         private void txtname_TextChanged(object sender, EventArgs e)
         {
 

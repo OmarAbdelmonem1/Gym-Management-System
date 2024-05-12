@@ -40,23 +40,28 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.Male = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtser = new System.Windows.Forms.CheckBox();
+            this.txtcoach = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.txtphone = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.txtaddress = new System.Windows.Forms.Label();
+            this.txtage = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Female = new System.Windows.Forms.RadioButton();
+            this.Male = new System.Windows.Forms.RadioButton();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtname = new System.Windows.Forms.TextBox();
+            this.txtdur = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtaddres = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -64,7 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtdur)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -80,7 +86,7 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(-7, 109);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(366, 387);
+            this.groupBox1.Size = new System.Drawing.Size(373, 620);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
@@ -101,7 +107,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.Location = new System.Drawing.Point(79, 296);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(232, 49);
+            this.button4.Size = new System.Drawing.Size(287, 58);
             this.button4.TabIndex = 9;
             this.button4.Text = "Subscriptions ";
             this.button4.UseVisualStyleBackColor = false;
@@ -123,7 +129,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.Location = new System.Drawing.Point(79, 208);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(232, 49);
+            this.button3.Size = new System.Drawing.Size(287, 63);
             this.button3.TabIndex = 7;
             this.button3.Text = "Manage Members";
             this.button3.UseVisualStyleBackColor = false;
@@ -145,7 +151,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(79, 119);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(232, 49);
+            this.button2.Size = new System.Drawing.Size(287, 63);
             this.button2.TabIndex = 5;
             this.button2.Text = "Equipments";
             this.button2.UseVisualStyleBackColor = false;
@@ -167,7 +173,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(79, 34);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(232, 49);
+            this.button1.Size = new System.Drawing.Size(287, 67);
             this.button1.TabIndex = 2;
             this.button1.Text = "New Member";
             this.button1.UseVisualStyleBackColor = false;
@@ -185,89 +191,179 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.txtaddres);
+            this.groupBox2.Controls.Add(this.txtdur);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.txtser);
+            this.groupBox2.Controls.Add(this.txtcoach);
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.button7);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtphone);
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.txtaddress);
+            this.groupBox2.Controls.Add(this.txtage);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.Female);
             this.groupBox2.Controls.Add(this.Male);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtemail);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtname);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(386, 12);
+            this.groupBox2.Location = new System.Drawing.Point(405, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(610, 458);
+            this.groupBox2.Size = new System.Drawing.Size(1078, 679);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registartion Fornm";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // textBox1
+            // label9
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox1.Location = new System.Drawing.Point(159, 54);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(445, 37);
-            this.textBox1.TabIndex = 0;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(6, 493);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 27);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Optional";
             // 
-            // label1
+            // txtser
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(6, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 27);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Name";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.txtser.AutoSize = true;
+            this.txtser.Location = new System.Drawing.Point(484, 492);
+            this.txtser.Name = "txtser";
+            this.txtser.Size = new System.Drawing.Size(434, 29);
+            this.txtser.TabIndex = 22;
+            this.txtser.Text = "Additional Services (Spa-Sauna-Jacuzzi)";
+            this.txtser.UseVisualStyleBackColor = true;
+            this.txtser.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // textBox2
+            // txtcoach
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox2.Location = new System.Drawing.Point(159, 114);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(445, 37);
-            this.textBox2.TabIndex = 2;
+            this.txtcoach.AutoSize = true;
+            this.txtcoach.Location = new System.Drawing.Point(159, 492);
+            this.txtcoach.Name = "txtcoach";
+            this.txtcoach.Size = new System.Drawing.Size(170, 29);
+            this.txtcoach.TabIndex = 21;
+            this.txtcoach.Text = "Private Coach";
+            this.txtcoach.UseVisualStyleBackColor = true;
             // 
-            // Male
+            // dateTimePicker1
             // 
-            this.Male.AutoSize = true;
-            this.Male.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Male.Location = new System.Drawing.Point(376, 349);
-            this.Male.Name = "Male";
-            this.Male.Size = new System.Drawing.Size(80, 29);
-            this.Male.TabIndex = 3;
-            this.Male.TabStop = true;
-            this.Male.Text = "Male";
-            this.Male.UseVisualStyleBackColor = true;
-            this.Male.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.dateTimePicker1.Location = new System.Drawing.Point(159, 355);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(759, 30);
+            this.dateTimePicker1.TabIndex = 20;
             // 
-            // radioButton1
+            // label8
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(500, 349);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(104, 29);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Female";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(6, 355);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 27);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Start date";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(-5, 614);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(234, 65);
+            this.button7.TabIndex = 17;
+            this.button7.Text = "Back";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(6, 171);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 27);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Phone";
+            // 
+            // txtphone
+            // 
+            this.txtphone.BackColor = System.Drawing.Color.White;
+            this.txtphone.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtphone.Location = new System.Drawing.Point(159, 168);
+            this.txtphone.Multiline = true;
+            this.txtphone.Name = "txtphone";
+            this.txtphone.Size = new System.Drawing.Size(759, 37);
+            this.txtphone.TabIndex = 14;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.Location = new System.Drawing.Point(844, 614);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(234, 65);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Submit";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // txtaddress
+            // 
+            this.txtaddress.AutoSize = true;
+            this.txtaddress.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtaddress.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.txtaddress.ForeColor = System.Drawing.Color.Black;
+            this.txtaddress.Location = new System.Drawing.Point(6, 228);
+            this.txtaddress.Name = "txtaddress";
+            this.txtaddress.Size = new System.Drawing.Size(98, 27);
+            this.txtaddress.TabIndex = 10;
+            this.txtaddress.Text = "Address";
+            this.txtaddress.Click += new System.EventHandler(this.txtaddress_Click);
+            // 
+            // txtage
+            // 
+            this.txtage.Location = new System.Drawing.Point(159, 281);
+            this.txtage.Name = "txtage";
+            this.txtage.Size = new System.Drawing.Size(120, 30);
+            this.txtage.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(6, 281);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 27);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Age";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(479, 281);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 27);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Gender";
             // 
             // label2
             // 
@@ -282,56 +378,71 @@
             this.label2.Text = "Email";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // comboBox1
+            // Female
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(159, 232);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(445, 33);
-            this.comboBox1.TabIndex = 6;
+            this.Female.AutoSize = true;
+            this.Female.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Female.Location = new System.Drawing.Point(733, 281);
+            this.Female.Name = "Female";
+            this.Female.Size = new System.Drawing.Size(104, 29);
+            this.Female.TabIndex = 4;
+            this.Female.TabStop = true;
+            this.Female.Text = "Female";
+            this.Female.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // Male
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(246, 349);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 27);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Gender";
+            this.Male.AutoSize = true;
+            this.Male.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Male.Location = new System.Drawing.Point(609, 281);
+            this.Male.Name = "Male";
+            this.Male.Size = new System.Drawing.Size(80, 29);
+            this.Male.TabIndex = 3;
+            this.Male.TabStop = true;
+            this.Male.Text = "Male";
+            this.Male.UseVisualStyleBackColor = true;
+            this.Male.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // label4
+            // txtemail
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(6, 349);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 27);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Age";
+            this.txtemail.BackColor = System.Drawing.Color.White;
+            this.txtemail.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtemail.Location = new System.Drawing.Point(159, 114);
+            this.txtemail.Multiline = true;
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(759, 37);
+            this.txtemail.TabIndex = 2;
             // 
-            // numericUpDown1
+            // label1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(109, 349);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 30);
-            this.numericUpDown1.TabIndex = 9;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(6, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 27);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label5
+            // txtname
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(6, 228);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 27);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Subscription";
+            this.txtname.BackColor = System.Drawing.Color.White;
+            this.txtname.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtname.Location = new System.Drawing.Point(159, 54);
+            this.txtname.Multiline = true;
+            this.txtname.Name = "txtname";
+            this.txtname.Size = new System.Drawing.Size(759, 37);
+            this.txtname.TabIndex = 0;
+            // 
+            // txtdur
+            // 
+            this.txtdur.Location = new System.Drawing.Point(159, 421);
+            this.txtdur.Name = "txtdur";
+            this.txtdur.Size = new System.Drawing.Size(759, 30);
+            this.txtdur.TabIndex = 25;
+            this.txtdur.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label6
             // 
@@ -339,65 +450,22 @@
             this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(6, 291);
+            this.label6.Location = new System.Drawing.Point(9, 424);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 27);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Duarations";
+            this.label6.Size = new System.Drawing.Size(114, 27);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Duaration";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // comboBox2
+            // txtaddres
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(159, 291);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(445, 33);
-            this.comboBox2.TabIndex = 12;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(376, 393);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(234, 65);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Submit";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(6, 171);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 27);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Phone";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox3.Location = new System.Drawing.Point(159, 168);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(445, 37);
-            this.textBox3.TabIndex = 14;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(0, 393);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(119, 65);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "Back";
-            this.button6.UseVisualStyleBackColor = false;
+            this.txtaddres.BackColor = System.Drawing.Color.White;
+            this.txtaddres.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtaddres.Location = new System.Drawing.Point(159, 225);
+            this.txtaddres.Multiline = true;
+            this.txtaddres.Name = "txtaddres";
+            this.txtaddres.Size = new System.Drawing.Size(759, 37);
+            this.txtaddres.TabIndex = 26;
             // 
             // Form3
             // 
@@ -405,7 +473,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1008, 494);
+            this.ClientSize = new System.Drawing.Size(1522, 729);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox2);
@@ -419,7 +487,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtdur)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -438,21 +507,26 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.RadioButton Male;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox txtemail;
+        private System.Windows.Forms.RadioButton Female;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown txtage;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label txtaddress;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtphone;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox txtser;
+        private System.Windows.Forms.CheckBox txtcoach;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown txtdur;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtaddres;
     }
 }
