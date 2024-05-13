@@ -16,13 +16,16 @@ namespace WindowsFormsApp1
 {
     public partial class Form5 : Form
     {
+        private DBConnection dbConnection;
         public Form5()
         {
             InitializeComponent();
+            dbConnection = DBConnection.GetInstance();
         }
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            groupBox2.Hide();
             ShowEquipment();
 
         }
@@ -36,13 +39,11 @@ namespace WindowsFormsApp1
                 string name = txtname.Text;
                 string type = txttype.Text;
                 string model = txtmodel.Text;
-                decimal price = (decimal)txtprice.Value;
+                decimal price = txtprice.Value;
 
-                string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
-                string insertQuery = "INSERT INTO Equipment (Name, Type, Model, Price) VALUES (@Name, @Type, @Model, @Price)";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = dbConnection.GetConnection())
                 {
+                    string insertQuery = "INSERT INTO Equipment (Name, Type, Model, Price) VALUES (@Name, @Type, @Model, @Price)";
                     using (SqlCommand command = new SqlCommand(insertQuery, connection))
                     {
                         command.Parameters.AddWithValue("@Name", name);
@@ -50,7 +51,6 @@ namespace WindowsFormsApp1
                         command.Parameters.AddWithValue("@Model", model);
                         command.Parameters.AddWithValue("@Price", price);
 
-                        connection.Open();
                         command.ExecuteNonQuery();
                     }
                 }
@@ -71,24 +71,35 @@ namespace WindowsFormsApp1
         //Read (CRUD)
         public DataTable GetEquipment()
         {
-            string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
-            string selectQuery = "SELECT * FROM Equipment";
             DataTable dataTable = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                // Get the DBConnection instance through an instance of the Form5 class
+                DBConnection dbConnection = DBConnection.GetInstance();
+
+                using (SqlConnection connection = dbConnection.GetConnection())
                 {
-                    connection.Open();
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    string selectQuery = "SELECT * FROM Equipment";
+
+                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
                     {
-                        adapter.Fill(dataTable);
+                        
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return dataTable;
         }
+
 
         private void ShowEquipment()
         {
@@ -181,19 +192,22 @@ namespace WindowsFormsApp1
         // Method to delete equipment from the database
         private void DeleteEquipmentFromDatabase(int equipmentId)
         {
-            string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
-            string deleteQuery = "DELETE FROM Equipment WHERE EquipmentID = @EquipmentId";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+                // Get the DBConnection instance through an instance of the Form5 class
+                DBConnection dbConnection = DBConnection.GetInstance();
 
-                    try
+                using (SqlConnection connection = dbConnection.GetConnection())
+                {
+                    string deleteQuery = "DELETE FROM Equipment WHERE EquipmentID = @EquipmentId";
+
+                    using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                     {
-                        connection.Open();
+                        command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+
+
                         int rowsAffected = command.ExecuteNonQuery();
+                      
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Equipment deleted from the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -203,13 +217,14 @@ namespace WindowsFormsApp1
                             MessageBox.Show("No equipment deleted from the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error deleting equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
 
 
@@ -217,25 +232,27 @@ namespace WindowsFormsApp1
         //Update (CRUD)
         private void UpdateEquipmentInDatabase(int equipmentId, string updatedName, string updatedType, string updatedModel, decimal updatedPrice)
         {
-            string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
-            string updateQuery = @"
-        UPDATE Equipment
-        SET Name = @Name, Type = @Type, Model = @Model, Price = @Price
-        WHERE EquipmentID = @EquipmentId";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(updateQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@Name", updatedName);
-                    command.Parameters.AddWithValue("@Type", updatedType);
-                    command.Parameters.AddWithValue("@Model", updatedModel);
-                    command.Parameters.AddWithValue("@Price", updatedPrice);
-                    command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+                // Get the DBConnection instance through an instance of the Form5 class
+                DBConnection dbConnection = DBConnection.GetInstance();
 
-                    try
+                using (SqlConnection connection = dbConnection.GetConnection())
+                {
+                    string updateQuery = @"
+                UPDATE Equipment
+                SET Name = @Name, Type = @Type, Model = @Model, Price = @Price
+                WHERE EquipmentID = @EquipmentId";
+
+                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
                     {
-                        connection.Open();
+                        command.Parameters.AddWithValue("@Name", updatedName);
+                        command.Parameters.AddWithValue("@Type", updatedType);
+                        command.Parameters.AddWithValue("@Model", updatedModel);
+                        command.Parameters.AddWithValue("@Price", updatedPrice);
+                        command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+
+                        
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
@@ -246,11 +263,11 @@ namespace WindowsFormsApp1
                             MessageBox.Show("No equipment details updated in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error updating equipment details in the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating equipment details in the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -377,6 +394,11 @@ namespace WindowsFormsApp1
             this.Hide();
             Form form = new Form2();
             form.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            groupBox2.Show();
         }
     }
 }
