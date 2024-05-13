@@ -32,4 +32,14 @@ public class Member
         this.Subscription = Subscription;
 
     }
+
+    public Member(string name, int age, string gender, string email, string phoneNumber, string address)
+    {
+        Name = name;
+        Age = age;
+        Gender = gender;
+        Email = email;
+        PhoneNumber = phoneNumber;
+        Address = address;
+    }
 }
