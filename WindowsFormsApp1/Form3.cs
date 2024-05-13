@@ -17,12 +17,12 @@ namespace WindowsFormsApp1
 {
     public partial class Form3 : Form
     {
-        private const string connectionString = "Data Source=LAPTOP-SA22HL97\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
+        private const string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
         public Form3()
         {
 
             InitializeComponent();
-            SqlConnection sql = new SqlConnection("Data Source=LAPTOP-SA22HL97\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;");
+            SqlConnection sql = new SqlConnection("Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;");
 
         }
 
@@ -127,7 +127,7 @@ namespace WindowsFormsApp1
 
         private void SaveMemberAndSubscription(Member member)
         {
-            string connectionString = "Data Source=LAPTOP-SA22HL97\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
+            string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
 
             try
             {
@@ -221,6 +221,45 @@ namespace WindowsFormsApp1
         }
 
         private void txtaddress_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Form2();
+            form.ShowDialog();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Form5();
+            form.ShowDialog();
+        }
+
+        private void txtaddres_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtphone_TextChanged(object sender, EventArgs e)
         {
 
         }

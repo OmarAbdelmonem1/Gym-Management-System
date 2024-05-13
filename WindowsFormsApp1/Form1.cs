@@ -39,7 +39,34 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Retrieve the username and password entered by the user
+            string username = textBox1.Text;
+            string password = textBox2.Text;
 
+            // Hardcoded credentials for demonstration purposes
+            string validUsername = "admin";
+            string validPassword = "admin";
+
+            // Check if the entered credentials match the valid credentials
+            if (username == validUsername && password == validPassword)
+            {
+                // Credentials are valid, perform login action
+                MessageBox.Show("Login successful!");
+                this.Hide();
+
+                Form form = new Form2();
+                form.ShowDialog();
+
+
+                
+                // You can perform further actions here, like opening a new form or enabling certain features.
+            }
+            else
+            {
+                // Credentials are invalid, show error message
+                MessageBox.Show("Invalid username or password. Please try again.");
+            }
         }
+
     }
 }

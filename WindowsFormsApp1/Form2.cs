@@ -26,12 +26,16 @@ namespace WindowsFormsApp1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form form = new Form3();
+            form.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form form = new Form5();
+            form.ShowDialog();
         }
 
         private void Form2_Load(object sender, EventArgs e)
