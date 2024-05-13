@@ -4,6 +4,11 @@ using System.Linq;
 
 namespace WindowsFormsApp1.models
 {
+    public interface ISubscriptionObserver
+    {
+        void NotifySubscriptionExpiring(Subscription subscription);
+    }
+
     public abstract class Subscription
     {
         public int Id { get; set; }
@@ -13,7 +18,8 @@ namespace WindowsFormsApp1.models
         public DateTime EndDate { get; set; }
         public double TotalPrice { get; set; }
         public List<Services> SelectedServices { get; set; } = new List<Services>();
-
+        private List<ISubscriptionObserver> observers = new List<ISubscriptionObserver>();
+       
         // Constructor for Subscription class
         public Subscription()
         {
@@ -41,7 +47,27 @@ namespace WindowsFormsApp1.models
 
             return totalPrice;
         }
+        //public void AddObserver(ISubscriptionObserver observer)
+        //{
+        //    observers.Add(observer);
+        //}
 
+        //public void RemoveObserver(ISubscriptionObserver observer)
+        //{
+        //    observers.Remove(observer);
+        //}
+
+        //protected void NotifyObserversSubscriptionExpiring()
+        //{
+        //    if (IsExpiringSoon())
+        //    {
+        //        foreach (var observer in observers)
+        //        {
+        //            observer.NotifySubscriptionExpiring(this);
+        //        }
+        //    }
+        //}
+        //protected abstract bool IsExpiringSoon();
 
     }
 
@@ -59,6 +85,8 @@ namespace WindowsFormsApp1.models
             double totalPrice = basePrice;
             return totalPrice;
         }
+
+      
     }
 
     public class GoldSubscription : Subscription

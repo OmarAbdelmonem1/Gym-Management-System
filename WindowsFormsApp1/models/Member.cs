@@ -13,6 +13,7 @@ namespace WindowsFormsApp1.models
 }
 public class Member
 {
+    public int Id { get; set; }
     public string Name { get; set; }
     public int Age { get; set; }
     public string Gender { get; set; }
@@ -21,8 +22,9 @@ public class Member
     public string Address { get; set; }
     public Subscription Subscription { get; set; }
 
-    public Member(string name, int age, string gender, string email, string phoneNumber, string address, Subscription Subscription)
+    public Member(int id,string name, int age, string gender, string email, string phoneNumber, string address, Subscription Subscription)
     {
+        Id= id;
         Name = name;
         Age = age;
         Gender = gender;

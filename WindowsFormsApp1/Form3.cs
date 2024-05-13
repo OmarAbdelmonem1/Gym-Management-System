@@ -206,6 +206,7 @@ namespace WindowsFormsApp1
                 selectedServices.Add(new Services("Sauna", 50));
                 selectedServices.Add(new Services("Jacuzzi", 50));
             }
+           
 
             // Create a subscription
             Subscription subscription = CreateSubscription(wantsPrivateCoach, selectedServices);
@@ -223,12 +224,12 @@ namespace WindowsFormsApp1
 
                 // Create a new subscription based on form inputs
                 Subscription subscription = CreateSubscriptionFromFormInputs();
-
-                // Assign the subscription to the member
-                newMember.Subscription = subscription;
-
-                // Insert subscription into database and get the ID
-                int subscriptionId = InsertSubscriptionIntoDatabase(subscription);
+             
+        // Assign the subscription to the member
+        newMember.Subscription = subscription;
+               
+        // Insert subscription into database and get the ID
+        int subscriptionId = InsertSubscriptionIntoDatabase(subscription);
 
                 // Insert member into database and associate with the subscription
                 InsertMemberIntoDatabase(newMember, subscriptionId);

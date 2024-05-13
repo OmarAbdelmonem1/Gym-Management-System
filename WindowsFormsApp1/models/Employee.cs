@@ -27,5 +27,11 @@ namespace WindowsFormsApp1.models
             WorkingDays = workingDays;
             Address = address;
         }
+
+        protected Employee(int id, string name)
+        {
+            this.id = id;
+            Name = name;
+        }
     }
 }
