@@ -89,6 +89,7 @@
     </Compile>
     <Compile Include="models\Coach.cs" />
     <Compile Include="models\Employee.cs" />
+    <Compile Include="models\Equipment.cs" />
     <Compile Include="models\Member.cs" />
     <Compile Include="models\Receptionist.cs" />
     <Compile Include="models\Services.cs" />

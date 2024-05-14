@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
     public partial class Form5 : Form
     {
         private DBConnection dbConnection;
+        private Equipment equipment;
         public Form5()
         {
             InitializeComponent();
@@ -28,7 +29,23 @@ namespace WindowsFormsApp1
             groupBox2.Hide();
             ShowEquipment();
 
+            //DateTime maintenanceDate = DateTime.Now.AddDays(-10); // Set maintenance date 10 days in the past
+            //equipment = new Equipment("Test Equipment", "Test Type", "Test Model", 1000, maintenanceDate);
+
+            //// Create maintenance team observer
+            //MaintenanceTeam maintenanceTeam = new MaintenanceTeam();
+
+            //// Create maintenance notification observer
+            //MaintenanceNotificationObserver notificationObserver = new MaintenanceNotificationObserver();
+
+            //// Attach observers to the equipment
+            //equipment.Attach(maintenanceTeam);
+            //equipment.Attach(notificationObserver);
+
+            //// Check maintenance status
+            //equipment.CheckMaintenanceStatus("TestEquipment123");
         }
+
 
 
         //insert (CRUD)
@@ -40,20 +57,24 @@ namespace WindowsFormsApp1
                 string type = txttype.Text;
                 string model = txtmodel.Text;
                 decimal price = txtprice.Value;
+                DateTime currentDate = DateTime.Now;
+                DateTime maintenanceDate = currentDate.AddMonths(6); // Calculate maintenance date by adding 6 months to the current date
 
                 using (SqlConnection connection = dbConnection.GetConnection())
                 {
-                    string insertQuery = "INSERT INTO Equipment (Name, Type, Model, Price) VALUES (@Name, @Type, @Model, @Price)";
+                    string insertQuery = "INSERT INTO Equipment (Name, Type, Model, Price, MaintenanceDate) VALUES (@Name, @Type, @Model, @Price, @MaintenanceDate)";
                     using (SqlCommand command = new SqlCommand(insertQuery, connection))
                     {
                         command.Parameters.AddWithValue("@Name", name);
                         command.Parameters.AddWithValue("@Type", type);
                         command.Parameters.AddWithValue("@Model", model);
                         command.Parameters.AddWithValue("@Price", price);
+                        command.Parameters.AddWithValue("@MaintenanceDate", maintenanceDate);
 
                         command.ExecuteNonQuery();
                     }
                 }
+
 
                 MessageBox.Show("Equipment added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
@@ -97,6 +118,28 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Error fetching equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                DateTime maintenanceDate = row.Field<DateTime>("MaintenanceDate");
+                int equipmentId = row.Field<int>("EquipmentID");
+
+                // Create an instance of Equipment for each record in the database
+                Equipment equipment = new Equipment(maintenanceDate);
+
+                // Create maintenance team observer
+                MaintenanceTeam maintenanceTeam = new MaintenanceTeam();
+
+                // Create maintenance notification observer
+                MaintenanceNotificationObserver notificationObserver = new MaintenanceNotificationObserver();
+
+                // Attach observers to the equipment
+                equipment.Attach(maintenanceTeam);
+                equipment.Attach(notificationObserver);
+
+                // Check maintenance status
+                equipment.CheckMaintenanceStatus(equipmentId.ToString());
+            }
+
             return dataTable;
         }
 
@@ -127,6 +170,13 @@ namespace WindowsFormsApp1
             deleteColumn.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(deleteColumn);
 
+            // Add a new column for maintenance status
+            //DataGridViewButtonColumn maintenanceColumn = new DataGridViewButtonColumn();
+            //maintenanceColumn.HeaderText = "Maintenance ";
+            //maintenanceColumn.Name = "Maintenance";
+            //maintenanceColumn.UseColumnTextForButtonValue = true;
+            //dataGridView1.Columns.Add(maintenanceColumn);
+
             // Subscribe to the CellClick event to handle button clicks
             dataGridView1.CellClick += DataGridView1_CellClick;
         }
@@ -153,6 +203,9 @@ namespace WindowsFormsApp1
                 DeleteEquipment(equipmentId);
             }
         }
+
+
+
 
 
 
@@ -399,6 +452,7 @@ namespace WindowsFormsApp1
         private void button6_Click(object sender, EventArgs e)
         {
             groupBox2.Show();
+            button6.Hide();
         }
     }
 }

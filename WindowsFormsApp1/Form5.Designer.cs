@@ -324,7 +324,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 26;
-            this.dataGridView1.Size = new System.Drawing.Size(758, 408);
+            this.dataGridView1.Size = new System.Drawing.Size(894, 408);
             this.dataGridView1.TabIndex = 13;
             // 
             // button6
@@ -332,7 +332,7 @@
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(1107, 355);
+            this.button6.Location = new System.Drawing.Point(1224, 426);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(205, 65);
             this.button6.TabIndex = 18;
@@ -342,7 +342,7 @@
             // 
             // Form5
             // 
-            this.ClientSize = new System.Drawing.Size(1332, 729);
+            this.ClientSize = new System.Drawing.Size(1441, 729);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);

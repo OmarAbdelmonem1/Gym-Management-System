@@ -10,7 +10,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form4 : Form
     {
-        private string connectionString = "Data Source=LAPTOP-SA22HL97\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
+        private string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
         private List<Coach> coachList; // List to hold Coach objects
 
         public Form4()
@@ -240,4 +240,10 @@ namespace WindowsFormsApp1
     {
 
     }
-}}
+
+        private void txtname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
