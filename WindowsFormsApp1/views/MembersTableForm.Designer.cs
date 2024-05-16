@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApp1.views
+﻿using System;
+
+namespace WindowsFormsApp1.views
 {
     partial class MembersTableForm
     {
@@ -227,6 +229,8 @@
             this.PerformLayout();
 
         }
+
+    
 
         #endregion
 
