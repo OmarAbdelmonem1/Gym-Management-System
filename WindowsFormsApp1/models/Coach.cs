@@ -22,5 +22,8 @@ namespace WindowsFormsApp1.models
            
         }
 
+        public Coach()
+        {
+        }
     }
 }

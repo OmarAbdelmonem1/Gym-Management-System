@@ -33,5 +33,6 @@ namespace WindowsFormsApp1.models
             this.id = id;
             Name = name;
         }
+        public Employee() { }
     }
 }

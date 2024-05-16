@@ -438,7 +438,7 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new Form3();
+            Form form = new MemberRegisterForm();
             form.ShowDialog();
         }
 

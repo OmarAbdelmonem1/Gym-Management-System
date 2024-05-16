@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form4
+    partial class SessionsCreationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SessionsCreationForm));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtstart = new System.Windows.Forms.DateTimePicker();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();

@@ -204,26 +204,4 @@ namespace WindowsFormsApp1.models
         }
     }
 
-
-    //public class SubscriptionFactory : ISubscriptionFactory
-    //{
-    //    public Subscription CreateSubscription(bool wantsPrivateCoach, List<Services> selectedServices, Coach currentCoach)
-    //    {
-    //        if (wantsPrivateCoach)
-    //        {
-    //            // User wants a private coach, create a Platinum subscription
-    //            return new PlatinumSubscription(selectedServices.ToList(), currentCoach);
-    //        }
-    //        else if (selectedServices.Any())
-    //        {
-    //            // User selected services but no private coach, create a Gold subscription
-    //            return new GoldSubscription(selectedServices.ToList());
-    //        }
-    //        else
-    //        {
-    //            // User did not select any additional services, create a Silver subscription
-    //            return new SilverSubscription();
-    //        }
-    //    }
-    //}
 }
