@@ -96,7 +96,6 @@ namespace WindowsFormsApp1
 
             try
             {
-                // Get the DBConnection instance through an instance of the Form5 class
                 DBConnection dbConnection = DBConnection.GetInstance();
 
                 using (SqlConnection connection = dbConnection.GetConnection())
@@ -105,7 +104,6 @@ namespace WindowsFormsApp1
 
                     using (SqlCommand command = new SqlCommand(selectQuery, connection))
                     {
-                        
                         using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                         {
                             adapter.Fill(dataTable);
@@ -118,30 +116,37 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Error fetching equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            MaintenanceTeam maintenanceTeam = new MaintenanceTeam();
+            MaintenanceNotificationObserver notificationObserver = new MaintenanceNotificationObserver();
+
+            List<Equipment> equipmentList = new List<Equipment>();
+            bool isAnyEquipmentOverdue = false;
+
             foreach (DataRow row in dataTable.Rows)
             {
                 DateTime maintenanceDate = row.Field<DateTime>("MaintenanceDate");
                 int equipmentId = row.Field<int>("EquipmentID");
 
-                // Create an instance of Equipment for each record in the database
                 Equipment equipment = new Equipment(maintenanceDate);
-
-                // Create maintenance team observer
-                MaintenanceTeam maintenanceTeam = new MaintenanceTeam();
-
-                // Create maintenance notification observer
-                MaintenanceNotificationObserver notificationObserver = new MaintenanceNotificationObserver();
-
-                // Attach observers to the equipment
                 equipment.Attach(maintenanceTeam);
                 equipment.Attach(notificationObserver);
 
-                // Check maintenance status
-                equipment.CheckMaintenanceStatus(equipmentId.ToString());
+                if (equipment.IsMaintenanceOverdue())
+                {
+                    isAnyEquipmentOverdue = true;
+                }
+
+                equipmentList.Add(equipment);
+            }
+
+            if (isAnyEquipmentOverdue)
+            {
+                notificationObserver.NotifyMaintenanceOverdue("There are equipments that need maintenance.");
             }
 
             return dataTable;
         }
+
 
 
         private void ShowEquipment()

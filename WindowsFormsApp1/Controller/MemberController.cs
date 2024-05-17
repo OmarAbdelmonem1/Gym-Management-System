@@ -8,7 +8,7 @@ namespace WindowsFormsApp1.Controllers
 {
     public class MemberController
     {
-        private const string connectionString = "Data Source=LAPTOP-SA22HL97\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
+        private const string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
 
         public void InsertMemberIntoDatabase(Member member, int subscriptionId)
         {
