@@ -63,6 +63,30 @@ namespace WindowsFormsApp1
                 DateTime currentDate = DateTime.Now;
                 DateTime maintenanceDate = currentDate.AddMonths(-1); // Calculate maintenance date by adding 6 months to the current date
 
+                if (string.IsNullOrEmpty(name))
+                {
+                    MessageBox.Show("Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(type))
+                {
+                    MessageBox.Show("Type is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(model))
+                {
+                    MessageBox.Show("Model is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (price <= 0)
+                {
+                    MessageBox.Show("Price must be a positive number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 using (SqlConnection connection = dbConnection.GetConnection())
                 {
                     string insertQuery = "INSERT INTO Equipment (Name, Type, Model, Price, MaintenanceDate) VALUES (@Name, @Type, @Model, @Price, @MaintenanceDate)";
@@ -569,6 +593,13 @@ namespace WindowsFormsApp1
                                 decimal updatedPrice;
                                 if (decimal.TryParse(updatedPriceStr, out updatedPrice))
                                 {
+                                    if(updatedPrice <= 0 )
+                                    {
+                                        MessageBox.Show("Price must be a positive number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    else
+                                    {
                                     // Update the DataGridView with the edited equipment details
                                     dataGridView1.Rows[rowIndex].Cells["Name"].Value = updatedName;
                                     dataGridView1.Rows[rowIndex].Cells["Type"].Value = updatedType;
@@ -577,14 +608,34 @@ namespace WindowsFormsApp1
 
                                     // Update the equipment details in the database
                                     UpdateEquipmentInDatabase(equipmentId, updatedName, updatedType, updatedModel, updatedPrice);
+                                    }
                                 }
                                 else
                                 {
                                     MessageBox.Show("Invalid price format. Please enter a valid decimal number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
+                            else
+                            {
+                               
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Model is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Type is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             else
