@@ -142,10 +142,22 @@ namespace WindowsFormsApp1.models
 
     public class Equipment : ISubject
     {
+        private string name;
+        private string type;
+        private string model;
+        private decimal price;
         private DateTime maintenanceDate;
         private List<IObserver> observers = new List<IObserver>();
         private string maintenanceMessage;
 
+        public Equipment(string name, string type, string model, decimal price, DateTime maintenanceDate)
+        {
+            this.name = name;
+            this.type = type;
+            this.model = model;
+            this.price = price;
+            this.maintenanceDate = maintenanceDate;
+        }
         public Equipment(DateTime maintenanceDate)
         {
             this.maintenanceDate = maintenanceDate;
@@ -154,6 +166,30 @@ namespace WindowsFormsApp1.models
         public DateTime MaintenanceDate
         {
             get { return maintenanceDate; }
+        }
+        // Getters and setters for equipment attributes
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        public string Model
+        {
+            get { return model; }
+            set { model = value; }
+        }
+
+        public decimal Price
+        {
+            get { return price; }
+            set { price = value; }
         }
 
         public void Attach(IObserver observer)
@@ -191,6 +227,8 @@ namespace WindowsFormsApp1.models
         public void Update(string message)
         {
             Console.WriteLine("Maintenance team received message: " + message);
+            NotificationForm notificationForm = new NotificationForm("Maintenance team received message: " + message);
+            notificationForm.ShowNotification();
         }
 
         public void UpdateMaintenance(string message)

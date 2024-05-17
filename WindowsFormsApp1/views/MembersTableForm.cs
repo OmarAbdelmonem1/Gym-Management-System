@@ -158,5 +158,10 @@ namespace WindowsFormsApp1.views
                 dataGridView1.DataSource = originalDataTable;
             }
         }
+
+        private void MembersTableForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

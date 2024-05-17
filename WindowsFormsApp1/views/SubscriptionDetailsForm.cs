@@ -39,7 +39,7 @@ namespace WindowsFormsApp1.views
             this.lblSubscriptionId.AutoSize = true;
             this.lblSubscriptionId.Location = new System.Drawing.Point(0, 0);
             this.lblSubscriptionId.Name = "lblSubscriptionId";
-            this.lblSubscriptionId.Size = new System.Drawing.Size(44, 16);
+            this.lblSubscriptionId.Size = new System.Drawing.Size(42, 17);
             this.lblSubscriptionId.TabIndex = 0;
             this.lblSubscriptionId.Text = "label1";
             // 
@@ -48,7 +48,7 @@ namespace WindowsFormsApp1.views
             this.lblType.AutoSize = true;
             this.lblType.Location = new System.Drawing.Point(205, 140);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(44, 16);
+            this.lblType.Size = new System.Drawing.Size(42, 17);
             this.lblType.TabIndex = 1;
             this.lblType.Text = "label2";
             // 
@@ -57,7 +57,7 @@ namespace WindowsFormsApp1.views
             this.lblStartDate.AutoSize = true;
             this.lblStartDate.Location = new System.Drawing.Point(282, 140);
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(44, 16);
+            this.lblStartDate.Size = new System.Drawing.Size(42, 17);
             this.lblStartDate.TabIndex = 2;
             this.lblStartDate.Text = "label3";
             // 
@@ -66,7 +66,7 @@ namespace WindowsFormsApp1.views
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Location = new System.Drawing.Point(456, 163);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(44, 16);
+            this.lblEndDate.Size = new System.Drawing.Size(42, 17);
             this.lblEndDate.TabIndex = 3;
             this.lblEndDate.Text = "label4";
             // 
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1.views
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Location = new System.Drawing.Point(450, 72);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(44, 16);
+            this.lblTotalPrice.Size = new System.Drawing.Size(42, 17);
             this.lblTotalPrice.TabIndex = 4;
             this.lblTotalPrice.Text = "label5";
             // 
@@ -88,8 +88,14 @@ namespace WindowsFormsApp1.views
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblSubscriptionId);
             this.Name = "SubscriptionDetailsForm";
+            this.Load += new System.EventHandler(this.SubscriptionDetailsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void SubscriptionDetailsForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

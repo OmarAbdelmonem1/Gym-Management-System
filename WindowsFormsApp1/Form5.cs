@@ -22,12 +22,15 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             dbConnection = DBConnection.GetInstance();
+            this.WindowState = FormWindowState.Maximized;
+
         }
 
         private void Form5_Load(object sender, EventArgs e)
         {
             groupBox2.Hide();
             ShowEquipment();
+            dataGridView1.RowPrePaint += dataGridView1_RowPrePaint;
 
             //DateTime maintenanceDate = DateTime.Now.AddDays(-10); // Set maintenance date 10 days in the past
             //equipment = new Equipment("Test Equipment", "Test Type", "Test Model", 1000, maintenanceDate);
@@ -58,7 +61,7 @@ namespace WindowsFormsApp1
                 string model = txtmodel.Text;
                 decimal price = txtprice.Value;
                 DateTime currentDate = DateTime.Now;
-                DateTime maintenanceDate = currentDate.AddMonths(6); // Calculate maintenance date by adding 6 months to the current date
+                DateTime maintenanceDate = currentDate.AddMonths(-1); // Calculate maintenance date by adding 6 months to the current date
 
                 using (SqlConnection connection = dbConnection.GetConnection())
                 {
@@ -161,6 +164,14 @@ namespace WindowsFormsApp1
             // Set the DataTable as the DataSource for the DataGridView
             dataGridView1.DataSource = equipmentTable;
 
+            // Add a new column for maintenance status
+            DataGridViewButtonColumn maintenanceColumn = new DataGridViewButtonColumn();
+            maintenanceColumn.HeaderText = "Maintenance";
+            maintenanceColumn.Text = "Maintenance";
+            maintenanceColumn.Name = "Maintenance";
+            maintenanceColumn.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(maintenanceColumn); 
+
             // Add a new column for the "Edit" button
             DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
             editColumn.HeaderText = "Edit";
@@ -175,12 +186,8 @@ namespace WindowsFormsApp1
             deleteColumn.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(deleteColumn);
 
-            // Add a new column for maintenance status
-            //DataGridViewButtonColumn maintenanceColumn = new DataGridViewButtonColumn();
-            //maintenanceColumn.HeaderText = "Maintenance ";
-            //maintenanceColumn.Name = "Maintenance";
-            //maintenanceColumn.UseColumnTextForButtonValue = true;
-            //dataGridView1.Columns.Add(maintenanceColumn);
+            
+            
 
             // Subscribe to the CellClick event to handle button clicks
             dataGridView1.CellClick += DataGridView1_CellClick;
@@ -188,8 +195,16 @@ namespace WindowsFormsApp1
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Check if the clicked cell is the "Edit" button
-            if (e.ColumnIndex == dataGridView1.Columns.Count - 2 && e.RowIndex >= 0) // Assuming the "Edit" button is the second-to-last column
+            // Check if the clicked cell is the "Maintenance" button
+            if (e.ColumnIndex == dataGridView1.Columns.Count - 3 && e.RowIndex >= 0) // Assuming the "Maintenance" button is the third-to-last column
+            {
+                // Get the equipment ID from the corresponding row
+                int equipmentId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["EquipmentID"].Value); // Assuming "EquipmentID" is the name of the column containing the equipment ID
+
+                // Perform the maintenance operation for the selected equipment
+                PerformMaintenance(equipmentId);
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns.Count - 2 && e.RowIndex >= 0) // Assuming the "Edit" button is the second-to-last column
             {
                 // Get the equipment ID from the corresponding row
                 int equipmentId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["EquipmentID"].Value); // Assuming "EquipmentID" is the name of the column containing the equipment ID
@@ -197,9 +212,7 @@ namespace WindowsFormsApp1
                 // Open the edit form or perform the edit operation for the selected equipment
                 EditEquipment(equipmentId);
             }
-
-            // Check if the clicked cell is the "Delete" button
-            if (e.ColumnIndex == dataGridView1.Columns.Count - 1 && e.RowIndex >= 0) // Assuming the "Delete" button is the last column
+            else if (e.ColumnIndex == dataGridView1.Columns.Count - 1 && e.RowIndex >= 0) // Assuming the "Delete" button is the last column
             {
                 // Get the equipment ID from the corresponding row
                 int equipmentId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["EquipmentID"].Value); // Assuming "EquipmentID" is the name of the column containing the equipment ID
@@ -209,8 +222,161 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            // Get the maintenance date cell for the current row
+            DataGridViewCell maintenanceDateCell = dataGridView1.Rows[e.RowIndex].Cells["MaintenanceDate"];
+
+            // Check if the cell value is not null and is a valid DateTime
+            if (maintenanceDateCell.Value != null && maintenanceDateCell.Value != DBNull.Value)
+            {
+                if (DateTime.TryParse(maintenanceDateCell.Value.ToString(), out DateTime maintenanceDate))
+                {
+                    // Compare maintenance date with current date to determine if it's overdue
+                    if (maintenanceDate < DateTime.Now)
+                    {
+                        // If maintenance date is overdue, set the row's background color to red
+                        dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                    }
+                }
+            }
+        }
 
 
+
+        private void PerformMaintenance(int equipmentId)
+        {
+            // Find the equipment with the specified ID
+            Equipment equipment = FindEquipmentById(equipmentId);
+
+            if (equipment != null)
+            {
+                // Notify maintenance team
+                //NotifyMaintenanceTeam(equipment);
+
+                // Update maintenance date by adding 6 months
+                DateTime updatedMaintenanceDate = DateTime.Now.AddMonths(6);
+
+                // Show confirmation dialog
+                DialogResult result = MessageBox.Show($"Are you sure you want to perform maintenance for equipment with ID: {equipmentId}?\nMaintenance date will be updated to: {updatedMaintenanceDate.ToShortDateString()}",
+                                                        "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Update maintenance date in the database
+                    UpdateMaintenanceDateInDatabase(equipmentId, updatedMaintenanceDate);
+
+                    NotifyMaintenanceTeam(equipmentId);
+
+                }
+                else
+                {
+                    MessageBox.Show("Maintenance operation canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Equipment with ID {equipmentId} not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        private void UpdateMaintenanceDateInDatabase(int equipmentId, DateTime updatedMaintenanceDate)
+        {
+            // Prepare the SQL update command
+            string updateQuery = "UPDATE Equipment SET MaintenanceDate = @UpdatedMaintenanceDate WHERE EquipmentID = @EquipmentId";
+
+            // Use DBConnection to get the connection
+            DBConnection dbConnection = DBConnection.GetInstance();
+
+            using (SqlConnection connection = dbConnection.GetConnection())
+            {
+                
+                // Create the command
+                using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                {
+                    // Add parameters to the command
+                    command.Parameters.AddWithValue("@UpdatedMaintenanceDate", updatedMaintenanceDate);
+                    command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+
+                    // Execute the update command
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    // Check if the update was successful
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine("Maintenance date updated successfully in the database.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to update maintenance date in the database.");
+                    }
+                }
+            }
+        }
+
+
+
+        private Equipment FindEquipmentById(int equipmentId)
+        {
+            Equipment equipment = null;
+
+            try
+            {
+                // Get a database connection instance
+                DBConnection dbConnection = DBConnection.GetInstance();
+
+                // Open a connection to the database
+                using (SqlConnection connection = dbConnection.GetConnection())
+                {
+                    // Define the SQL query to select equipment by ID
+                    string selectQuery = "SELECT * FROM Equipment WHERE EquipmentID = @EquipmentId";
+
+                    // Create a SqlCommand with the select query and connection
+                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                    {
+                        // Add the equipment ID parameter to the command
+                        command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+
+                        // Execute the command to retrieve the equipment data
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            // Check if data was retrieved
+                            if (reader.Read())
+                            {
+                                // Extract data from the reader and create an Equipment object
+                                string name = reader["Name"].ToString();
+                                string type = reader["Type"].ToString();
+                                string model = reader["Model"].ToString();
+                                decimal price = Convert.ToDecimal(reader["Price"]);
+                                DateTime maintenanceDate = Convert.ToDateTime(reader["MaintenanceDate"]);
+
+                                // Create the Equipment object
+                                equipment = new Equipment(name, type, model, price, maintenanceDate);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions, such as database connection errors
+                MessageBox.Show($"Error finding equipment by ID: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return equipment;
+        }
+
+
+        private void NotifyMaintenanceTeam(int equipmentId)
+        {
+            // Assuming you have a maintenance team object
+            MaintenanceTeam maintenanceTeam = new MaintenanceTeam();
+
+            // Notify maintenance team
+            maintenanceTeam.UpdateMaintenance($"Maintenance needed for equipment: {equipmentId}");
+        }
 
 
 

@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
 
             // Timer to close the notification after a few seconds
             timer = new Timer();
-            timer.Interval = 5000; // 5 seconds
+            timer.Interval = 4000; // 5 seconds
             timer.Tick += Timer_Tick;
 
             // Timer for animation

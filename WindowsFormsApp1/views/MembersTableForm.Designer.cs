@@ -67,7 +67,7 @@ namespace WindowsFormsApp1.views
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(-1, 109);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(373, 620);
+            this.groupBox1.Size = new System.Drawing.Size(326, 620);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
@@ -76,7 +76,7 @@ namespace WindowsFormsApp1.views
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(0, 280);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(73, 74);
+            this.pictureBox5.Size = new System.Drawing.Size(64, 74);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
@@ -86,9 +86,9 @@ namespace WindowsFormsApp1.views
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(79, 296);
+            this.button4.Location = new System.Drawing.Point(69, 296);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(287, 58);
+            this.button4.Size = new System.Drawing.Size(251, 58);
             this.button4.TabIndex = 9;
             this.button4.Text = "Subscriptions ";
             this.button4.UseVisualStyleBackColor = false;
@@ -98,7 +98,7 @@ namespace WindowsFormsApp1.views
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(0, 197);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 74);
+            this.pictureBox4.Size = new System.Drawing.Size(64, 74);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
@@ -108,9 +108,9 @@ namespace WindowsFormsApp1.views
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(79, 208);
+            this.button3.Location = new System.Drawing.Point(69, 208);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(287, 63);
+            this.button3.Size = new System.Drawing.Size(251, 63);
             this.button3.TabIndex = 7;
             this.button3.Text = "Manage Members";
             this.button3.UseVisualStyleBackColor = false;
@@ -120,7 +120,7 @@ namespace WindowsFormsApp1.views
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(0, 108);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(73, 74);
+            this.pictureBox3.Size = new System.Drawing.Size(64, 74);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
@@ -130,9 +130,9 @@ namespace WindowsFormsApp1.views
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(79, 119);
+            this.button2.Location = new System.Drawing.Point(69, 119);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(287, 63);
+            this.button2.Size = new System.Drawing.Size(251, 63);
             this.button2.TabIndex = 5;
             this.button2.Text = "Equipments";
             this.button2.UseVisualStyleBackColor = false;
@@ -142,7 +142,7 @@ namespace WindowsFormsApp1.views
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 21);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 74);
+            this.pictureBox1.Size = new System.Drawing.Size(64, 74);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -152,9 +152,9 @@ namespace WindowsFormsApp1.views
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(79, 34);
+            this.button1.Location = new System.Drawing.Point(69, 34);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(287, 67);
+            this.button1.Size = new System.Drawing.Size(251, 67);
             this.button1.TabIndex = 2;
             this.button1.Text = "New Member";
             this.button1.UseVisualStyleBackColor = false;
@@ -164,7 +164,7 @@ namespace WindowsFormsApp1.views
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(-1, -2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(373, 112);
+            this.pictureBox2.Size = new System.Drawing.Size(326, 112);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
@@ -174,42 +174,42 @@ namespace WindowsFormsApp1.views
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(394, 62);
+            this.dataGridView1.Location = new System.Drawing.Point(345, 62);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1116, 667);
+            this.dataGridView1.Size = new System.Drawing.Size(976, 667);
             this.dataGridView1.TabIndex = 14;
             // 
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(0, 0);
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 22);
+            this.maskedTextBox1.Size = new System.Drawing.Size(88, 24);
             this.maskedTextBox1.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(447, 37);
+            this.label1.Location = new System.Drawing.Point(391, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.Size = new System.Drawing.Size(50, 17);
             this.label1.TabIndex = 17;
             this.label1.Text = "Search";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(516, 34);
+            this.textBox1.Location = new System.Drawing.Point(452, 34);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(611, 22);
+            this.textBox1.Size = new System.Drawing.Size(535, 24);
             this.textBox1.TabIndex = 18;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // MembersTableForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1522, 729);
+            this.ClientSize = new System.Drawing.Size(1332, 729);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.maskedTextBox1);
@@ -218,6 +218,7 @@ namespace WindowsFormsApp1.views
             this.Controls.Add(this.pictureBox2);
             this.Name = "MembersTableForm";
             this.Text = "MembersTableForm";
+            this.Load += new System.EventHandler(this.MembersTableForm_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
