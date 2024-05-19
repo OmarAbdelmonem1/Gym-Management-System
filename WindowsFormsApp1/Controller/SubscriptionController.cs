@@ -10,7 +10,12 @@ namespace WindowsFormsApp1.Controllers
     public class SubscriptionController
     {
         private const string connectionString = "Data Source=LAPTOP-SA22HL97\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
+        private DBConnection dbConnection;
 
+        public SubscriptionController()
+        {
+            dbConnection = DBConnection.GetInstance();
+        }
         public Subscription CreateSubscription(bool wantsPrivateCoach, List<Services> selectedServices)
         {
             ISubscriptionFactory subscriptionFactory;
@@ -33,55 +38,78 @@ namespace WindowsFormsApp1.Controllers
 
         public int InsertSubscriptionIntoDatabase(Subscription subscription)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-
-                string insertSubscriptionQuery = @"
-                    INSERT INTO subscriptions (Type, start_date, end_date, totalprice, coach_id) 
-                    VALUES (@Type, @StartDate, @EndDate, @TotalPrice, @CoachId);
-                    SELECT SCOPE_IDENTITY();";
-
-                using (SqlCommand subscriptionCommand = new SqlCommand(insertSubscriptionQuery, connection))
+                using (SqlConnection connection = dbConnection.GetConnection())
                 {
-                    subscriptionCommand.Parameters.AddWithValue("@Type", subscription.Name);
-                    subscriptionCommand.Parameters.AddWithValue("@StartDate", subscription.StartDate);
-                    subscriptionCommand.Parameters.AddWithValue("@EndDate", subscription.EndDate);
-                    subscriptionCommand.Parameters.AddWithValue("@TotalPrice", subscription.CalculateTotalPrice());
+                  
 
-                    int coachId = GetRandomCoachIdFromDatabase(connection);
+                    string insertSubscriptionQuery = @"
+                INSERT INTO subscriptions (Type, start_date, end_date, totalprice, coach_id) 
+                VALUES (@Type, @StartDate, @EndDate, @TotalPrice, @CoachId);
+                SELECT SCOPE_IDENTITY();";
 
-                    if (subscription is PlatinumSubscription)
+                    using (SqlCommand subscriptionCommand = new SqlCommand(insertSubscriptionQuery, connection))
                     {
-                        subscriptionCommand.Parameters.AddWithValue("@CoachId", coachId);
-                    }
-                    else
-                    {
-                        subscriptionCommand.Parameters.AddWithValue("@CoachId", DBNull.Value);
-                    }
+                        subscriptionCommand.Parameters.AddWithValue("@Type", subscription.Name);
+                        subscriptionCommand.Parameters.AddWithValue("@StartDate", subscription.StartDate);
+                        subscriptionCommand.Parameters.AddWithValue("@EndDate", subscription.EndDate);
+                        subscriptionCommand.Parameters.AddWithValue("@TotalPrice", subscription.CalculateTotalPrice());
 
-                    int subscriptionId = Convert.ToInt32(subscriptionCommand.ExecuteScalar());
-                    Console.WriteLine($"Subscription Inserted. ID: {subscriptionId}");
-                    return subscriptionId;
+                        int coachId = GetRandomCoachIdFromDatabase();
+
+                        if (subscription is PlatinumSubscription)
+                        {
+                            subscriptionCommand.Parameters.AddWithValue("@CoachId", coachId);
+                        }
+                        else
+                        {
+                            subscriptionCommand.Parameters.AddWithValue("@CoachId", DBNull.Value);
+                        }
+
+                        int subscriptionId = Convert.ToInt32(subscriptionCommand.ExecuteScalar());
+                        Console.WriteLine($"Subscription Inserted. ID: {subscriptionId}");
+                        dbConnection.CloseConnection(connection);
+                        return subscriptionId;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                throw new Exception("Error inserting subscription into the database: " + ex.Message);
+            }
         }
 
-        private int GetRandomCoachIdFromDatabase(SqlConnection connection)
+        private int GetRandomCoachIdFromDatabase()
         {
-            string selectCoachIdQuery = "SELECT TOP 1 id FROM Coach ORDER BY NEWID();";
-            SqlCommand selectCoachIdCommand = new SqlCommand(selectCoachIdQuery, connection);
-            object result = selectCoachIdCommand.ExecuteScalar();
+            try
+            {
+                using (SqlConnection connection = dbConnection.GetConnection())
+                {
+                    
 
-            if (result != null && result != DBNull.Value)
-            {
-                return Convert.ToInt32(result);
+                    string selectCoachIdQuery = "SELECT TOP 1 Id FROM Coach ORDER BY NEWID();";
+                    using (SqlCommand selectCoachIdCommand = new SqlCommand(selectCoachIdQuery, connection))
+                    {
+                        object result = selectCoachIdCommand.ExecuteScalar();
+                        dbConnection.CloseConnection(connection);
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            throw new Exception("No coach found in the database.");
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception("No coach found in the database.");
+                throw new Exception("Error retrieving random coach ID: " + ex.Message);
             }
         }
+
 
         public Subscription CreateSubscriptionFromFormInputs(DateTime startDate, int durationMonths, bool wantsPrivateCoach, bool wantsServices)
         {
@@ -103,98 +131,119 @@ namespace WindowsFormsApp1.Controllers
         }
         public Subscription GetSubscriptionDetails(int subscriptionId)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-
-                string selectSubscriptionQuery = @"
-                    SELECT Id, Type, start_date, end_date, totalprice, coach_id
-                    FROM subscriptions
-                    WHERE Id = @SubscriptionId;";
-
-                using (SqlCommand subscriptionCommand = new SqlCommand(selectSubscriptionQuery, connection))
+                using (SqlConnection connection = dbConnection.GetConnection())
                 {
-                    subscriptionCommand.Parameters.AddWithValue("@SubscriptionId", subscriptionId);
+                    
 
-                    using (SqlDataReader reader = subscriptionCommand.ExecuteReader())
+                    string selectSubscriptionQuery = @"
+                SELECT Id, Type, start_date, end_date, totalprice, coach_id
+                FROM subscriptions
+                WHERE Id = @SubscriptionId;";
+
+                    using (SqlCommand subscriptionCommand = new SqlCommand(selectSubscriptionQuery, connection))
                     {
-                        if (reader.Read())
+                        subscriptionCommand.Parameters.AddWithValue("@SubscriptionId", subscriptionId);
+
+                        using (SqlDataReader reader = subscriptionCommand.ExecuteReader())
                         {
-                            Subscription subscription;
+                            if (reader.Read())
+                            {
+                                Subscription subscription;
 
-                            string subscriptionType = reader["Type"].ToString().Trim();
-                            DateTime startDate = Convert.ToDateTime(reader["start_date"]);
-                            DateTime endDate = Convert.ToDateTime(reader["end_date"]);
-                            double totalPrice = Convert.ToDouble(reader["totalprice"]);
-                            int coachId = reader["coach_id"] != DBNull.Value ? Convert.ToInt32(reader["coach_id"]) : 0;
+                                string subscriptionType = reader["Type"].ToString().Trim();
+                                DateTime startDate = Convert.ToDateTime(reader["start_date"]);
+                                DateTime endDate = Convert.ToDateTime(reader["end_date"]);
+                                double totalPrice = Convert.ToDouble(reader["totalprice"]);
+                                int coachId = reader["coach_id"] != DBNull.Value ? Convert.ToInt32(reader["coach_id"]) : 0;
 
-                            if (subscriptionType == "Silver")
-                            {
-                                subscription = new SilverSubscription();
-                            }
-                            else if (subscriptionType == "Gold")
-                            {
-                                subscription = new GoldSubscription(new List<Services>());
-                            }
-                            else if (subscriptionType == "Platinum")
-                            {
-                                // Fetch coach details if coachId is available
-                                Coach coach = coachId != 0 ? GetCoachDetails(coachId) : null;
-                                subscription = new PlatinumSubscription(new List<Services>(), coach);
+                                if (subscriptionType == "Silver")
+                                {
+                                    subscription = new SilverSubscription();
+                                }
+                                else if (subscriptionType == "Gold")
+                                {
+                                    subscription = new GoldSubscription(new List<Services>());
+                                }
+                                else if (subscriptionType == "Platinum")
+                                {
+                                    // Fetch coach details if coachId is available
+                                    Coach coach = coachId != 0 ? GetCoachDetails(coachId) : null;
+                                    subscription = new PlatinumSubscription(new List<Services>(), coach);
+                                }
+                                else
+                                {
+                                    throw new Exception($"Unsupported subscription type: {subscriptionType}");
+                                }
+
+                                subscription.Id = subscriptionId;
+                                subscription.StartDate = startDate;
+                                subscription.EndDate = endDate;
+                                subscription.TotalPrice = totalPrice;
+                                dbConnection.CloseConnection(connection);
+                                return subscription;
                             }
                             else
                             {
-                                throw new Exception($"Unsupported subscription type: {subscriptionType}");
+                                throw new Exception($"Subscription with ID {subscriptionId} not found.");
                             }
-
-                            subscription.Id = subscriptionId;
-                            subscription.StartDate = startDate;
-                            subscription.EndDate = endDate;
-                            subscription.TotalPrice = totalPrice;
-
-                            return subscription;
-                        }
-                        else
-                        {
-                            throw new Exception($"Subscription with ID {subscriptionId} not found.");
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving subscription details: " + ex.Message);
+            }
         }
+
 
         private Coach GetCoachDetails(int coachId)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-
-                string selectCoachQuery = @"
-                    SELECT id, name, specialization
-                    FROM Coach
-                    WHERE id = @CoachId;";
-
-                using (SqlCommand coachCommand = new SqlCommand(selectCoachQuery, connection))
+                using (SqlConnection connection = dbConnection.GetConnection())
                 {
-                    coachCommand.Parameters.AddWithValue("@CoachId", coachId);
+                    connection.Open();
 
-                    using (SqlDataReader reader = coachCommand.ExecuteReader())
+                    string selectCoachQuery = @"
+                SELECT id, name, specialization
+                FROM Coach
+                WHERE id = @CoachId;";
+
+                    using (SqlCommand coachCommand = new SqlCommand(selectCoachQuery, connection))
                     {
-                        if (reader.Read())
-                        {
-                            string coachName = reader["name"].ToString();
-                            string specialization = reader["specialization"].ToString();
+                        coachCommand.Parameters.AddWithValue("@CoachId", coachId);
 
-                            return new Coach { id = coachId, Name = coachName,  };
-                        }
-                        else
+                        using (SqlDataReader reader = coachCommand.ExecuteReader())
                         {
-                            throw new Exception($"Coach with ID {coachId} not found.");
+                            if (reader.Read())
+                            {
+                                string coachName = reader["name"].ToString();
+                             
+                                dbConnection.CloseConnection(connection);
+                                return new Coach
+                                {
+                                    id = coachId,
+                                    Name = coachName,
+                                    
+                                };
+                            }
+                            else
+                            {
+                                throw new Exception($"Coach with ID {coachId} not found.");
+                            }
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving coach details: " + ex.Message);
+            }
         }
+
     }
 
 

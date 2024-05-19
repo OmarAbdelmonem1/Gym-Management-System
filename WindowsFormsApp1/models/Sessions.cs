@@ -4,6 +4,9 @@ using WindowsFormsApp1.models;
 
 public class Session
 {
+    private int coachId;
+    private string daysOfWeek;
+
     public int Id { get; set; }
     public string Name { get; set; }
     public Coach Coach { get; set; }
@@ -28,6 +31,18 @@ public class Session
         selectedDays = selectedDays;
         Description = description;
         
+    }
+    public Session() { }
+    public Session(int id, string name, Coach coach, int maxCapacity, TimeSpan startTime, TimeSpan endTime, List<string> selectedDay, string description)
+    {
+        Id = id;
+        Name = name;
+        Coach = coach;
+        MaxCapacity = maxCapacity;
+        StartTime = startTime;
+        EndTime = endTime;
+        selectedDays = selectedDays;
+        Description = description;
     }
 
     // Method to check if the session occurs on a specific day of the week

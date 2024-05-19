@@ -1,36 +1,66 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
+using System;
+using WindowsFormsApp1.Controllers;
+using WindowsFormsApp1.views;
 
-namespace WindowsFormsApp1.views
+public partial class SessionForm : Form
 {
-    partial class MembersTableForm
+    private SessionController sessionController;
+    private FlowLayoutPanel flowLayoutPanelSessions;
+    private GroupBox groupBox1;
+    private PictureBox pictureBox5;
+    private Button button4;
+    private PictureBox pictureBox4;
+    private Button button3;
+    private PictureBox pictureBox3;
+    private Button button2;
+    private PictureBox pictureBox1;
+    private Button button1;
+    private PictureBox pictureBox2;
+    private List<Session> sessions;
+
+    public SessionForm()
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        InitializeComponent();
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        // Initialize SessionController
+        sessionController = new SessionController();
+
+        // Load sessions from the database
+        LoadSessions();
+    }
+
+    private void LoadSessions()
+    {
+        try
         {
-            if (disposing && (components != null))
+            // Retrieve sessions from SessionController
+            sessions = sessionController.GetAllSessions();
+
+            // Clear existing controls in FlowLayoutPanel
+            flowLayoutPanelSessions.Controls.Clear();
+
+            // Create and add SessionCard controls for each session
+            foreach (Session session in sessions)
             {
-                components.Dispose();
+                WindowsFormsApp1.views.SessionCard sessionCard = new SessionCard();
+                sessionCard.DisplaySession(session);
+
+                // Add SessionCard to FlowLayoutPanel
+                flowLayoutPanelSessions.Controls.Add(sessionCard);
             }
-            base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+        catch (Exception ex)
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersTableForm));
+            MessageBox.Show("Error loading sessions: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void InitializeComponent()
+    {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SessionForm));
+            this.flowLayoutPanelSessions = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -41,17 +71,20 @@ namespace WindowsFormsApp1.views
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // flowLayoutPanelSessions
+            // 
+            this.flowLayoutPanelSessions.Location = new System.Drawing.Point(416, 69);
+            this.flowLayoutPanelSessions.Name = "flowLayoutPanelSessions";
+            this.flowLayoutPanelSessions.Size = new System.Drawing.Size(800, 600);
+            this.flowLayoutPanelSessions.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -64,7 +97,7 @@ namespace WindowsFormsApp1.views
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(-1, 109);
+            this.groupBox1.Location = new System.Drawing.Point(-2, 112);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(373, 620);
             this.groupBox1.TabIndex = 13;
@@ -161,83 +194,27 @@ namespace WindowsFormsApp1.views
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox2.Location = new System.Drawing.Point(-2, 1);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(373, 112);
+            this.pictureBox2.Size = new System.Drawing.Size(366, 112);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // dataGridView1
+            // SessionForm
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(394, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1115, 667);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(447, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Search";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(517, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(611, 22);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // MembersTableForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1522, 729);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1275, 727);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox2);
-            this.Name = "MembersTableForm";
-            this.Text = "MembersTableForm";
-            this.Load += new System.EventHandler(this.MembersTableForm_Load);
+            this.Controls.Add(this.flowLayoutPanelSessions);
+            this.Name = "SessionForm";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
-        }
-
-    
-
-        #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -78,6 +78,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
     <Compile Include="NotificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,30 @@
     </Compile>
     <Compile Include="views\MembersTableForm.Designer.cs">
       <DependentUpon>MembersTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\SessionControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\SessionControl1.Designer.cs">
+      <DependentUpon>SessionControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\SessionDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\SessionDetailsForm.Designer.cs">
+      <DependentUpon>SessionDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\SessionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\SessionForm.Designer.cs">
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\SessionMembersForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\SessionMembersForm1.Designer.cs">
+      <DependentUpon>SessionMembersForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="views\SessionsCreationForm.cs">
       <SubType>Form</SubType>
@@ -127,6 +157,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NotificationForm.resx">
       <DependentUpon>NotificationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +168,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\MembersTableForm.resx">
       <DependentUpon>MembersTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\SessionControl1.resx">
+      <DependentUpon>SessionControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\SessionDetailsForm.resx">
+      <DependentUpon>SessionDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\SessionForm.resx">
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\SessionMembersForm1.resx">
+      <DependentUpon>SessionMembersForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\SessionsCreationForm.resx">
       <DependentUpon>SessionsCreationForm.cs</DependentUpon>

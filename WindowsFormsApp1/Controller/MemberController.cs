@@ -8,41 +8,57 @@ namespace WindowsFormsApp1.Controllers
 {
     public class MemberController
     {
-        private const string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
+        private const string connectionString = "Data Source=LAPTOP-SA22HL97\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
+
+        private DBConnection dbConnection;
+
+        public MemberController()
+        {
+            dbConnection = DBConnection.GetInstance();
+        }
 
         public void InsertMemberIntoDatabase(Member member, int subscriptionId)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-
-                string insertMemberQuery = @"
-                    INSERT INTO Member (Name, Age, Gender, Email, PhoneNumber, Address, subscriptions_id) 
-                    VALUES (@Name, @Age, @Gender, @Email, @PhoneNumber, @Address, @SubscriptionId);";
-
-                using (SqlCommand memberCommand = new SqlCommand(insertMemberQuery, connection))
+                using (SqlConnection connection = dbConnection.GetConnection())
                 {
-                    memberCommand.Parameters.AddWithValue("@Name", member.Name);
-                    memberCommand.Parameters.AddWithValue("@Age", member.Age);
-                    memberCommand.Parameters.AddWithValue("@Gender", member.Gender);
-                    memberCommand.Parameters.AddWithValue("@Email", member.Email);
-                    memberCommand.Parameters.AddWithValue("@PhoneNumber", member.PhoneNumber);
-                    memberCommand.Parameters.AddWithValue("@Address", member.Address);
-                    memberCommand.Parameters.AddWithValue("@SubscriptionId", subscriptionId);
+                    {
+                        string insertMemberQuery = @"
+                INSERT INTO Member (Name, Age, Gender, Email, PhoneNumber, Address, subscriptions_id) 
+                VALUES (@Name, @Age, @Gender, @Email, @PhoneNumber, @Address, @SubscriptionId);";
 
-                    int rowsAffected = memberCommand.ExecuteNonQuery();
-                    Console.WriteLine($"Member Inserted. Rows Affected: {rowsAffected}");
+                        using (SqlCommand memberCommand = new SqlCommand(insertMemberQuery, connection))
+                        {
+                            memberCommand.Parameters.AddWithValue("@Name", member.Name);
+                            memberCommand.Parameters.AddWithValue("@Age", member.Age);
+                            memberCommand.Parameters.AddWithValue("@Gender", member.Gender);
+                            memberCommand.Parameters.AddWithValue("@Email", member.Email);
+                            memberCommand.Parameters.AddWithValue("@PhoneNumber", member.PhoneNumber);
+                            memberCommand.Parameters.AddWithValue("@Address", member.Address);
+                            memberCommand.Parameters.AddWithValue("@SubscriptionId", subscriptionId);
+
+                            int rowsAffected = memberCommand.ExecuteNonQuery();
+                            Console.WriteLine($"Member Inserted. Rows Affected: {rowsAffected}");
+                        }
+                    }
+                    dbConnection.CloseConnection(connection);
+                    // Check if member's subscription is not null before accessing its properties
+                    if (member.Subscription != null)
+                    {
+                        MessageBox.Show("Member and Subscription created successfully! Type: " + member.Subscription.Name, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Member created successfully, but no subscription assigned.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
+             
             }
-
-            // Check if member's subscription is not null before accessing its properties
-            if (member.Subscription != null)
+            catch (Exception ex)
             {
-                MessageBox.Show("Member and Subscription created successfully! Type: " + member.Subscription.Name, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Member created successfully, but no subscription assigned.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("Error inserting member into database: " + ex.Message);
+                // Handle or log the exception as needed
             }
         }
 
@@ -56,9 +72,9 @@ namespace WindowsFormsApp1.Controllers
         {
             DataTable membersTable = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = dbConnection.GetConnection())
             {
-                connection.Open();
+                
 
                 string selectMembersQuery = "SELECT * FROM Member;";
 
@@ -66,15 +82,16 @@ namespace WindowsFormsApp1.Controllers
                 {
                     adapter.Fill(membersTable);
                 }
+                dbConnection.CloseConnection(connection);
             }
 
             return membersTable;
+
         }
         public void UpdateMember(Member member)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = dbConnection.GetConnection())
             {
-                connection.Open();
 
                 string updateMemberQuery = @"
             UPDATE Member 
@@ -96,15 +113,16 @@ namespace WindowsFormsApp1.Controllers
                     int rowsAffected = memberCommand.ExecuteNonQuery();
                     Console.WriteLine($"Member Updated. Rows Affected: {rowsAffected}");
                 }
+                dbConnection.CloseConnection(connection);
             }
         }
 
 
         public void DeleteMember(int memberId)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = dbConnection.GetConnection())
             {
-                connection.Open();
+               
 
                 string deleteMemberQuery = "DELETE FROM Member WHERE MemberId = @MemberId;";
 
@@ -115,6 +133,7 @@ namespace WindowsFormsApp1.Controllers
                     int rowsAffected = memberCommand.ExecuteNonQuery();
                     Console.WriteLine($"Member Deleted. Rows Affected: {rowsAffected}");
                 }
+                dbConnection.CloseConnection(connection);
             }
         }
     }

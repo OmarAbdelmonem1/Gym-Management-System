@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace WindowsFormsApp1.views
+﻿namespace WindowsFormsApp1.views
 {
-    partial class MembersTableForm
+    partial class SessionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +28,8 @@ namespace WindowsFormsApp1.views
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersTableForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SessionForm));
+            this.flowLayoutPanelSessions = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -41,17 +40,23 @@ namespace WindowsFormsApp1.views
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // flowLayoutPanelSessions
+            // 
+            this.flowLayoutPanelSessions.AllowDrop = true;
+            this.flowLayoutPanelSessions.AutoScroll = true;
+            this.flowLayoutPanelSessions.Location = new System.Drawing.Point(391, 83);
+            this.flowLayoutPanelSessions.Name = "flowLayoutPanelSessions";
+            this.flowLayoutPanelSessions.Size = new System.Drawing.Size(1119, 612);
+            this.flowLayoutPanelSessions.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -64,10 +69,10 @@ namespace WindowsFormsApp1.views
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(-1, 109);
+            this.groupBox1.Location = new System.Drawing.Point(-3, 118);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(373, 620);
-            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
             // pictureBox5
@@ -161,71 +166,49 @@ namespace WindowsFormsApp1.views
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox2.Location = new System.Drawing.Point(-3, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(373, 112);
+            this.pictureBox2.Size = new System.Drawing.Size(373, 124);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(394, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1115, 667);
-            this.dataGridView1.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(447, 37);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(414, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Search";
+            this.label1.Size = new System.Drawing.Size(195, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Sessions List";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(517, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(611, 22);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // MembersTableForm
+            // SessionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1522, 729);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1522, 697);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox2);
-            this.Name = "MembersTableForm";
-            this.Text = "MembersTableForm";
-            this.Load += new System.EventHandler(this.MembersTableForm_Load);
+            this.Controls.Add(this.flowLayoutPanelSessions);
+            this.Name = "SessionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.Text = "SessionForm";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-    
-
         #endregion
 
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSessions;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button button4;
@@ -236,8 +219,6 @@ namespace WindowsFormsApp1.views
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

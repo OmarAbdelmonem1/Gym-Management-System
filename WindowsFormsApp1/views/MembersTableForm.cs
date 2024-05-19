@@ -25,6 +25,8 @@ namespace WindowsFormsApp1.views
             originalDataTable = memberController.GetAllMembers();
             dataGridView1.DataSource = originalDataTable;
             AddButtonsToDataGridView();
+            dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+         
         }
 
         private void AddButtonsToDataGridView()
@@ -87,6 +89,27 @@ namespace WindowsFormsApp1.views
                         MessageBox.Show("Invalid subscription ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                int memberId = Convert.ToInt32(row.Cells["memberId"].Value);
+                string name = row.Cells["Name"].Value.ToString();
+                int age = Convert.ToInt32(row.Cells["Age"].Value);
+                string gender = row.Cells["Gender"].Value.ToString();
+                string email = row.Cells["Email"].Value.ToString();
+                string phoneNumber = row.Cells["PhoneNumber"].Value.ToString();
+                string address = row.Cells["Address"].Value.ToString();
+                int subscriptionId = Convert.ToInt32(row.Cells["subscriptions_id"].Value);
+
+                Member member = new Member(memberId, name, age, gender, email, phoneNumber, address);
+              
+
+                memberController.UpdateMember(member);
+                LoadMembers(); // Reload members after updating
             }
         }
 

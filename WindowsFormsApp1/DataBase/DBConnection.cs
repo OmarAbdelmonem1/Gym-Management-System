@@ -7,7 +7,7 @@ public class DBConnection
     private static DBConnection instance;
 
     // Connection string for the database
-    private string connectionString = "Data Source=DESKTOP-8PECM9F\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
+    private string connectionString = "Data Source=LAPTOP-SA22HL97\\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True;";
 
     // Private constructor to prevent instantiation
     private DBConnection() { }
