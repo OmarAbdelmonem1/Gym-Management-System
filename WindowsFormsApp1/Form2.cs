@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace WindowsFormsApp1
 {
@@ -20,6 +21,18 @@ namespace WindowsFormsApp1
             InitializeComponent();
             dbConnection = DBConnection.GetInstance();
             connection = dbConnection.GetConnection();
+            LoadSubscriptionCounts();
+
+
+            var counts = FetchSubscriberCounts();
+            int platinumCount = counts.PlatinumCount;
+            int goldCount = counts.GoldCount;
+            int silverCount = counts.SilverCount;
+
+            // Now you can use platinumCount, goldCount, and silverCount as needed
+            Console.WriteLine("Platinum subscribers count: " + platinumCount);
+            Console.WriteLine("Gold subscribers count: " + goldCount);
+            Console.WriteLine("Silver subscribers count: " + silverCount);
 
             if (connection.State == System.Data.ConnectionState.Open)
             {
@@ -32,6 +45,100 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void LoadSubscriptionCounts()
+        {
+            var counts = FetchSubscriberCounts();
+
+            // Clear existing series data
+            this.subscriptionChart.Series.Clear();
+
+            // Create a new series and set its chart type
+            Series series = new Series
+            {
+                Name = "Subscribers",
+                IsVisibleInLegend = true,
+                ChartType = SeriesChartType.Doughnut
+            };
+
+            // Add data points to the series
+            series.Points.AddXY("Platinum", counts.PlatinumCount);
+            series.Points.AddXY("Gold", counts.GoldCount);
+            series.Points.AddXY("Silver", counts.SilverCount);
+
+            // Add the series to the chart
+            subscriptionChart.Series.Add(series);
+
+            // Customize chart appearance
+            subscriptionChart.ChartAreas[0].AxisX.Title = "Subscription Type";
+            subscriptionChart.ChartAreas[0].AxisY.Title = "Count";
+            
+        }
+
+
+        public (int PlatinumCount, int GoldCount, int SilverCount) FetchSubscriberCounts()
+        {
+            List<string> subscriptionTypes = new List<string>();
+            int platinumCount = 0;
+            int goldCount = 0;
+            int silverCount = 0;
+
+            using (SqlConnection connection = dbConnection.GetConnection())
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    string query = "SELECT [Type] FROM subscriptions;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        try
+                        {
+                            SqlDataReader reader = command.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                string subscriptionType = reader["Type"].ToString();
+                                
+                                subscriptionTypes.Add(subscriptionType);
+                            }
+                            reader.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error executing SQL query: " + ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Connection state is not open.");
+                }
+            }
+
+            Console.WriteLine(subscriptionTypes);
+            // Count the occurrences of each subscription type
+            foreach (string subscriptionType in subscriptionTypes)
+            {
+                Console.WriteLine(subscriptionType);
+                Console.WriteLine("-----------------");
+                if (subscriptionType.Contains("Platinum"))
+                {
+                    platinumCount = platinumCount+1;
+                }
+                else if (subscriptionType.Contains("Gold"))
+                {
+                    goldCount = goldCount+1;
+                }
+                else if (subscriptionType.Contains("Silver"))
+                {
+                    silverCount = silverCount +1;
+                }
+            }
+            return (platinumCount, goldCount, silverCount);
+        }
+
+
+
+
+
+
         private void LoadData()
         {
             try
@@ -41,9 +148,9 @@ namespace WindowsFormsApp1
                 int totalEqu = FetchTotalEqu();
                 int totalSession = FetchTotalSession();
 
-                label1.Text = $"Total Members: {totalMembers}";
-                label2.Text = $"Total Equipments: {totalEqu}";
-                label3.Text = $"Total Sessions: {totalSession}";
+                label1.Text = totalMembers.ToString();
+                label2.Text =  totalEqu.ToString();
+                label3.Text = totalSession.ToString();
 
                
 
@@ -128,6 +235,14 @@ namespace WindowsFormsApp1
 
         }
 
+        private void label8_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
