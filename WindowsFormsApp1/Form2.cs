@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
+using WindowsFormsApp1.views;
 
 namespace WindowsFormsApp1
 {
@@ -243,6 +244,13 @@ namespace WindowsFormsApp1
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new MembersTableForm();
+            form.ShowDialog();
         }
     }
 }

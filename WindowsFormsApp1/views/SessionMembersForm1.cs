@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controllers;
-using WindowsFormsApp1.models; // Assuming your Member class is in the Models namespace
+using WindowsFormsApp1.models;
+using WindowsFormsApp1.views; // Assuming your Member class is in the Models namespace
 
 namespace WindowsFormsApp1.Views
 {
@@ -123,5 +124,32 @@ namespace WindowsFormsApp1.Views
             }
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new SessionForm();
+            form.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new MemberRegisterForm();
+            form.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Form5();
+            form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new MembersTableForm();
+            form.ShowDialog();
+        }
     }
 }

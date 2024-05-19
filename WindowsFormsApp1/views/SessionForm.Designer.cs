@@ -118,6 +118,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "Manage Members";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox3
             // 
@@ -140,6 +141,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Equipments";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox1
             // 
@@ -162,6 +164,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "New Member";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox2
             // 

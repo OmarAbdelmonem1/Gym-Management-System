@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controllers;
 using WindowsFormsApp1.models;
+using WindowsFormsApp1.views;
 
 namespace WindowsFormsApp1
 {
@@ -76,5 +77,27 @@ namespace WindowsFormsApp1
         private void txtcoach_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void txtname_TextChanged(object sender, EventArgs e) { }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new MemberRegisterForm();
+            form.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Form5();
+            form.ShowDialog();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new MembersTableForm();
+            form.ShowDialog();
+        }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 using System.Data.SqlClient;
 using WindowsFormsApp1.models;
+using WindowsFormsApp1.views;
 
 namespace WindowsFormsApp1
 {
@@ -675,6 +676,13 @@ namespace WindowsFormsApp1
         {
             groupBox2.Show();
             button6.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new MembersTableForm();
+            form.ShowDialog();
         }
     }
 }

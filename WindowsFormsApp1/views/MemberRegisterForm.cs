@@ -14,6 +14,7 @@ using System.Data.SqlClient;
 using WindowsFormsApp1.models;
 using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1.Controllers;
+using WindowsFormsApp1.views;
 
 namespace WindowsFormsApp1
 {
@@ -133,7 +134,9 @@ private void label6_Click(object sender, EventArgs e)
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form form = new Form5();
+            form.ShowDialog();
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -161,6 +164,20 @@ private void label6_Click(object sender, EventArgs e)
         private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new MemberRegisterForm();
+            form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new MembersTableForm();
+            form.ShowDialog();
         }
     }
 }

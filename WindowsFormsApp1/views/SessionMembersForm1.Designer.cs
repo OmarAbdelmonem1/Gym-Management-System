@@ -43,6 +43,7 @@
             this.txtid = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -112,6 +113,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "Manage Members";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox3
             // 
@@ -134,6 +136,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Equipments";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox1
             // 
@@ -156,6 +159,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "New Member";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox2
             // 
@@ -174,7 +178,7 @@
             this.dataGridViewMembers.Name = "dataGridViewMembers";
             this.dataGridViewMembers.RowHeadersWidth = 51;
             this.dataGridViewMembers.RowTemplate.Height = 24;
-            this.dataGridViewMembers.Size = new System.Drawing.Size(948, 586);
+            this.dataGridViewMembers.Size = new System.Drawing.Size(948, 418);
             this.dataGridViewMembers.TabIndex = 10;
             this.dataGridViewMembers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMembers_CellContentClick);
             // 
@@ -204,11 +208,25 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Add new Member";
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(438, 546);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(234, 65);
+            this.button7.TabIndex = 18;
+            this.button7.Text = "Back";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // SessionMembersForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1522, 697);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.txtid);
@@ -245,5 +263,6 @@
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button7;
     }
 }
