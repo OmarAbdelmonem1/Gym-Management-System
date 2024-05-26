@@ -245,7 +245,6 @@
             this.txtdur.Name = "txtdur";
             this.txtdur.Size = new System.Drawing.Size(759, 30);
             this.txtdur.TabIndex = 25;
-        
             // 
             // label6
             // 
@@ -281,7 +280,7 @@
             this.txtser.TabIndex = 22;
             this.txtser.Text = "Additional Services (Spa-Sauna-Jacuzzi)";
             this.txtser.UseVisualStyleBackColor = true;
-     
+            // 
             // txtcoach
             // 
             this.txtcoach.AutoSize = true;

@@ -17,6 +17,7 @@ namespace WindowsFormsApp1.models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public double TotalPrice { get; set; }
+        public string Status { get; set; }
         public List<Services> SelectedServices { get; set; } = new List<Services>();
         private List<ISubscriptionObserver> observers = new List<ISubscriptionObserver>();
        

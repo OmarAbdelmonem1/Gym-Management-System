@@ -103,6 +103,12 @@
     <Compile Include="views\CoachRegisterFor.Designer.cs">
       <DependentUpon>CoachRegisterFor.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\EditSubscriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\EditSubscriptionForm.Designer.cs">
+      <DependentUpon>EditSubscriptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\MemberRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\CoachRegisterFor.resx">
       <DependentUpon>CoachRegisterFor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\EditSubscriptionForm.resx">
+      <DependentUpon>EditSubscriptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\MemberRegisterForm.resx">
       <DependentUpon>MemberRegisterForm.cs</DependentUpon>
