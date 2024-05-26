@@ -687,8 +687,12 @@ namespace WindowsFormsApp1
 
         private void button8_Click(object sender, EventArgs e)
         {
-            string f = "C:\\Users\\Omar\\Downloads";
-            axWindowsMediaPlayer1.URL = f;
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

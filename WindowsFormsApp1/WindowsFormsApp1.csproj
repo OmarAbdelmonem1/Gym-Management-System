@@ -62,33 +62,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CheckInController.cs" />
     <Compile Include="Controller\CoachController.cs" />
     <Compile Include="Controller\MemberController.cs" />
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\SubscriptionController.cs" />
     <Compile Include="DataBase\DBConnection.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="views\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="views\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="views\NotificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NotificationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NotificationForm.Designer.cs">
+    <Compile Include="views\NotificationForm.Designer.cs">
       <DependentUpon>NotificationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="views\CoachesTableForm.cs">
@@ -151,10 +146,10 @@
     <Compile Include="views\SessionsCreationForm.Designer.cs">
       <DependentUpon>SessionsCreationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="views\Form5.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
+    <Compile Include="views\Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
     <Compile Include="models\Coach.cs" />
@@ -170,16 +165,13 @@
     <Compile Include="views\SubscriptionDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="views\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NotificationForm.resx">
+    <EmbeddedResource Include="views\NotificationForm.resx">
       <DependentUpon>NotificationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\CoachesTableForm.resx">
@@ -212,7 +204,7 @@
     <EmbeddedResource Include="views\SessionsCreationForm.resx">
       <DependentUpon>SessionsCreationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
+    <EmbeddedResource Include="views\Form5.resx">
       <DependentUpon>Form5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

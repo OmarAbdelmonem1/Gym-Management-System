@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1.views;
+using WindowsFormsApp1.Controller;
 
 namespace WindowsFormsApp1
 {
@@ -17,6 +18,10 @@ namespace WindowsFormsApp1
     {
         private DBConnection dbConnection;
         private SqlConnection connection;
+
+        private Timer autoCheckOutTimer;
+        private CheckInController checkInController;
+
         public Form2()
         {
             InitializeComponent();
@@ -24,6 +29,8 @@ namespace WindowsFormsApp1
             connection = dbConnection.GetConnection();
             LoadSubscriptionCounts();
 
+            checkInController = new CheckInController();
+            InitializeTimer();
 
             var counts = FetchSubscriberCounts();
             int platinumCount = counts.PlatinumCount;
@@ -251,6 +258,50 @@ namespace WindowsFormsApp1
             this.Hide();
             Form form = new MembersTableForm();
             form.ShowDialog();
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+           
+        }
+
+
+
+
+        
+
+       
+
+        private void InitializeTimer()
+        {
+            autoCheckOutTimer = new Timer();
+            autoCheckOutTimer.Interval = 30000; // 1 minute interval
+
+            autoCheckOutTimer.Tick += new EventHandler(AutoCheckOutTimer_Tick);
+            autoCheckOutTimer.Start();
+        }
+
+        private void AutoCheckOutTimer_Tick(object sender, EventArgs e)
+        {
+            checkInController.AutoCheckOut();
+        }
+
+        private void btnCheckIn_Click_1(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtMemberId.Text, out int memberId))
+            {
+                checkInController.CheckInMember(memberId);
+                //LoadCheckInRecords(memberId);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid member ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtMemberId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
