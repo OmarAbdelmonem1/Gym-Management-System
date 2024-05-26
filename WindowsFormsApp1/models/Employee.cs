@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.models
         public string Address { get; set; }
         public Employee(int it,string name, int age, string gender, string contactNumber, double salary, int workingDays, string address)
         {
-            id = id;
+            id = it;
             Name = name;
             Age = age;
             Gender = gender;

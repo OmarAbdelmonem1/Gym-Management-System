@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CoachController.cs" />
     <Compile Include="Controller\MemberController.cs" />
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\SubscriptionController.cs" />
@@ -89,6 +90,18 @@
     </Compile>
     <Compile Include="NotificationForm.Designer.cs">
       <DependentUpon>NotificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\CoachesTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\CoachesTableForm.Designer.cs">
+      <DependentUpon>CoachesTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\CoachRegisterFor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\CoachRegisterFor.Designer.cs">
+      <DependentUpon>CoachRegisterFor.cs</DependentUpon>
     </Compile>
     <Compile Include="views\MemberRegisterForm.cs">
       <SubType>Form</SubType>
@@ -163,6 +176,12 @@
     <EmbeddedResource Include="NotificationForm.resx">
       <DependentUpon>NotificationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\CoachesTableForm.resx">
+      <DependentUpon>CoachesTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\CoachRegisterFor.resx">
+      <DependentUpon>CoachRegisterFor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\MemberRegisterForm.resx">
       <DependentUpon>MemberRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +235,24 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

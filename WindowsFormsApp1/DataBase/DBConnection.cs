@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 public class DBConnection
@@ -29,8 +30,15 @@ public class DBConnection
         SqlConnection connection = new SqlConnection(connectionString);
         try
         {
-            connection.Open();
-            Console.WriteLine("Database connection opened.");
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+                Console.WriteLine("Database connection opened.");
+            }
+            else
+            {
+                Console.WriteLine("Database connection already open.");
+            }
         }
         catch (Exception ex)
         {

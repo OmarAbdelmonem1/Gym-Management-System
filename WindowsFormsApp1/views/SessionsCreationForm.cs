@@ -63,6 +63,7 @@ namespace WindowsFormsApp1
             {
                 sessionController.AddSession(name, coachId, maxCapacity, startTime, endTime, selectedDays, description);
                 MessageBox.Show("Session added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
             catch (Exception ex)
             {
@@ -98,6 +99,11 @@ namespace WindowsFormsApp1
             this.Hide();
             Form form = new MembersTableForm();
             form.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

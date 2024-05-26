@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
     {
         private MemberController memberController;
         private SubscriptionController subscriptionController;
-
+        private Subscription currentsub;
         public MemberRegisterForm()
         {
             InitializeComponent();
@@ -54,6 +54,8 @@ namespace WindowsFormsApp1
         {
 
             CreateMemberAndSubscription();
+            SubscriptionDetailsForm s = new SubscriptionDetailsForm(currentsub);
+            s.ShowDialog ();
         }
 
 
@@ -97,6 +99,7 @@ namespace WindowsFormsApp1
                 );
 
                 newMember.Subscription = subscription;
+                currentsub = subscription;
 
                 int subscriptionId = subscriptionController.InsertSubscriptionIntoDatabase(subscription);
                 memberController.InsertMemberIntoDatabase(newMember, subscriptionId);
@@ -122,9 +125,6 @@ private void label6_Click(object sender, EventArgs e)
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form form = new Form2();
-            form.ShowDialog();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

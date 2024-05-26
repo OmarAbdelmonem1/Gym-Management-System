@@ -208,6 +208,9 @@ namespace WindowsFormsApp1.views
             form.ShowDialog();
         }
 
-     
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
