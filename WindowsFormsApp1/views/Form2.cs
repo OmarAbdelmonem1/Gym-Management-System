@@ -155,10 +155,12 @@ namespace WindowsFormsApp1
                 int totalMembers = FetchTotalMembers();
                 int totalEqu = FetchTotalEqu();
                 int totalSession = FetchTotalSession();
+                int totalcheckin = FetchTotalCheckin();
 
                 label1.Text = totalMembers.ToString();
                 label2.Text =  totalEqu.ToString();
                 label3.Text = totalSession.ToString();
+                label9.Text = totalcheckin.ToString();
 
                
 
@@ -195,7 +197,14 @@ namespace WindowsFormsApp1
                 return (int)command.ExecuteScalar();
             }
         }
-       
+        private int FetchTotalCheckin()
+        {
+            using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM checkins", connection))
+            {
+                return (int)command.ExecuteScalar();
+            }
+        }
+
 
 
 
@@ -291,7 +300,9 @@ namespace WindowsFormsApp1
             if (int.TryParse(txtMemberId.Text, out int memberId))
             {
                 checkInController.CheckInMember(memberId);
-                //LoadCheckInRecords(memberId);
+                this.Hide();
+                Form form = new Form2();
+                form.ShowDialog();
             }
             else
             {
