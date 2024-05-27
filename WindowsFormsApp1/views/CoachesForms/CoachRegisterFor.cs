@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using WindowsFormsApp1.Controllers;
 using WindowsFormsApp1.models;
+using WindowsFormsApp1.views.DashBoardForms;
+
 
 namespace WindowsFormsApp1.views
 {
@@ -19,6 +21,10 @@ namespace WindowsFormsApp1.views
         public CoachRegisterFor()
         {
             InitializeComponent();
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button9.Hide();
+            }
             coachController = new CoachController();
           
         }
@@ -101,6 +107,13 @@ namespace WindowsFormsApp1.views
         {
             this.Hide();
             Form f = new DashBoardForm();
+            f.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
             f.ShowDialog();
         }
     }

@@ -15,6 +15,8 @@ using WindowsFormsApp1.models;
 using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1.Controllers;
 using WindowsFormsApp1.views;
+using WindowsFormsApp1.views.DashBoardForms;
+
 
 namespace WindowsFormsApp1
 {
@@ -26,6 +28,10 @@ namespace WindowsFormsApp1
         public MemberRegisterForm()
         {
             InitializeComponent();
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button8.Hide();
+            }
             memberController = new MemberController();
             subscriptionController = new SubscriptionController();
         }
@@ -198,6 +204,13 @@ private void label6_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form f = new DashBoardForm();
+            f.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
             f.ShowDialog();
         }
     }

@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controllers;
 using WindowsFormsApp1.models;
+using WindowsFormsApp1.views.DashBoardForms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1.views
@@ -16,6 +17,10 @@ namespace WindowsFormsApp1.views
         public CoachesTableForm()
         {
             InitializeComponent();
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button9.Hide();
+            }
             coachController = new CoachController();
             LoadCoaches();
         }
@@ -261,6 +266,13 @@ namespace WindowsFormsApp1.views
         private void CoachesTableForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
+            f.ShowDialog();
         }
     }
     }

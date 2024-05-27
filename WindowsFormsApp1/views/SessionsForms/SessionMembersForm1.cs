@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Controllers;
 using WindowsFormsApp1.models;
 using WindowsFormsApp1.views; // Assuming your Member class is in the Models namespace
+using WindowsFormsApp1.views.DashBoardForms;
 
 namespace WindowsFormsApp1.Views
 {
@@ -21,6 +22,10 @@ namespace WindowsFormsApp1.Views
         public SessionMembersForm1(Session currentSession)
         {
             InitializeComponent();
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button8.Hide();
+            }
             sessionController = new SessionController();
             PopulateMembers(currentSession.Id); // Pass the session ID
             this.currentSession = currentSession;
@@ -170,6 +175,13 @@ namespace WindowsFormsApp1.Views
         {
             this.Hide();
             Form f = new DashBoardForm();
+            f.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
             f.ShowDialog();
         }
     }

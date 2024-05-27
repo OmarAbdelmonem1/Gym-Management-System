@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controllers;
+using WindowsFormsApp1.views.DashBoardForms;
 
 namespace WindowsFormsApp1.views
 {
@@ -13,7 +14,10 @@ namespace WindowsFormsApp1.views
         public SessionForm()
         {
             InitializeComponent();
-
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button8.Hide();
+            }
             // Initialize SessionController
             sessionController = new SessionController();
 
@@ -107,6 +111,13 @@ namespace WindowsFormsApp1.views
         {
             this.Hide();
             Form f = new SessionsCreationForm();
+            f.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
             f.ShowDialog();
         }
     }

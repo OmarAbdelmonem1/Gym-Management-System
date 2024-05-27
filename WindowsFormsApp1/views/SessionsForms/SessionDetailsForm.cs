@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controllers;
 using WindowsFormsApp1.models;
+using WindowsFormsApp1.views.DashBoardForms;
 
 namespace WindowsFormsApp1.views
 {
@@ -15,7 +16,10 @@ namespace WindowsFormsApp1.views
         public SessionDetailsForm()
         {
             InitializeComponent();
-
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button6.Hide();
+            }
             sessionController = new SessionController();
             coachList = sessionController.GetCoaches();
             PopulateComboBox();
@@ -149,6 +153,13 @@ namespace WindowsFormsApp1.views
         {
             this.Hide();
             Form f = new DashBoardForm();
+            f.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
             f.ShowDialog();
         }
     } }

@@ -190,5 +190,10 @@ namespace WindowsFormsApp1.views.DashBoardForms
             CoachesTableForm f = new CoachesTableForm();
             f.ShowDialog();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

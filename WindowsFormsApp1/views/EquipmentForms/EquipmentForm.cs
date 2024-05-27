@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using WindowsFormsApp1.models;
 using WindowsFormsApp1.views;
+using WindowsFormsApp1.views.DashBoardForms;
 using WindowsFormsApp1.Controller;
 
 namespace WindowsFormsApp1
@@ -24,6 +25,10 @@ namespace WindowsFormsApp1
         public EquipmentForm()
         {
             InitializeComponent();
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button9.Hide();
+            }
             dbConnection = DBConnection.GetInstance();
             this.WindowState = FormWindowState.Maximized;
             equipmentController = new EquipmentController();
@@ -477,6 +482,13 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
+            f.ShowDialog();
         }
     }
 }

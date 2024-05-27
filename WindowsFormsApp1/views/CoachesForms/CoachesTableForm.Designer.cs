@@ -46,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button6 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -79,6 +80,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.pictureBox10);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.pictureBox5);
@@ -245,6 +247,19 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button9.Location = new System.Drawing.Point(70, 472);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(250, 63);
+            this.button9.TabIndex = 26;
+            this.button9.Text = "Credentials";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // CoachesTableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -290,5 +305,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button9;
     }
 }

@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controllers;
 using WindowsFormsApp1.models;
+using WindowsFormsApp1.views.DashBoardForms;
 
 namespace WindowsFormsApp1.views
 {
@@ -15,6 +16,10 @@ namespace WindowsFormsApp1.views
         public MembersTableForm()
         {
             InitializeComponent();
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button8.Hide();
+            }
             memberController = new MemberController();
             subscriptionController = new SubscriptionController();
             LoadMembers();
@@ -231,6 +236,13 @@ namespace WindowsFormsApp1.views
         {
             this.Hide();
             Form f = new DashBoardForm();
+            f.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
             f.ShowDialog();
         }
     }

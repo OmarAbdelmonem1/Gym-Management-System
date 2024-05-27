@@ -4,6 +4,8 @@ using System.Text;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controllers;
 using WindowsFormsApp1.models;
+using WindowsFormsApp1.views.DashBoardForms;
+
 
 namespace WindowsFormsApp1.views
 {
@@ -41,10 +43,15 @@ namespace WindowsFormsApp1.views
         private Button button4;
         private PictureBox pictureBox5;
         private Button button6;
+        private Button button8;
         private Subscription curreentsub;
         public SubscriptionDetailsForm(Subscription subscription)
         {
             InitializeComponent();
+            if (SESSION.UserRole == "Receptionist")
+            {
+                button8.Hide();
+            }
             subscriptionController = new SubscriptionController();
              curreentsub = subscription;
             // Display subscription details in labels or textboxes
@@ -78,6 +85,10 @@ namespace WindowsFormsApp1.views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubscriptionDetailsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -104,22 +115,20 @@ namespace WindowsFormsApp1.views
             this.label10 = new System.Windows.Forms.Label();
             this.lblCoachName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.pictureBox10);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.pictureBox5);
@@ -135,6 +144,52 @@ namespace WindowsFormsApp1.views
             this.groupBox1.Size = new System.Drawing.Size(373, 620);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(3, 366);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(73, 74);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 20;
+            this.pictureBox10.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(83, 377);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(287, 63);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Coaches";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(3, 277);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(73, 74);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 18;
+            this.pictureBox5.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.Location = new System.Drawing.Point(83, 288);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(287, 63);
+            this.button6.TabIndex = 17;
+            this.button6.Text = "Sessions";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // pictureBox4
             // 
@@ -240,14 +295,14 @@ namespace WindowsFormsApp1.views
             // 
             this.lblStartDate.Location = new System.Drawing.Point(601, 269);
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(759, 22);
+            this.lblStartDate.Size = new System.Drawing.Size(759, 24);
             this.lblStartDate.TabIndex = 29;
             // 
             // lblEndDate
             // 
             this.lblEndDate.Location = new System.Drawing.Point(601, 338);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(759, 22);
+            this.lblEndDate.Size = new System.Drawing.Size(759, 24);
             this.lblEndDate.TabIndex = 30;
             // 
             // lblTotalPrice
@@ -404,51 +459,18 @@ namespace WindowsFormsApp1.views
             this.label11.Size = new System.Drawing.Size(0, 32);
             this.label11.TabIndex = 45;
             // 
-            // pictureBox10
+            // button8
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(3, 366);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(73, 74);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 20;
-            this.pictureBox10.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(83, 377);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(287, 63);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Coaches";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(3, 277);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(73, 74);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 18;
-            this.pictureBox5.TabStop = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(83, 288);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(287, 63);
-            this.button6.TabIndex = 17;
-            this.button6.Text = "Sessions";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button8.Location = new System.Drawing.Point(83, 455);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(287, 63);
+            this.button8.TabIndex = 48;
+            this.button8.Text = "Credentials";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // SubscriptionDetailsForm
             // 
@@ -477,12 +499,12 @@ namespace WindowsFormsApp1.views
             this.Name = "SubscriptionDetailsForm";
             this.Load += new System.EventHandler(this.SubscriptionDetailsForm_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,6 +596,13 @@ namespace WindowsFormsApp1.views
         {
             this.Hide();
             Form f = new DashBoardForm();
+            f.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
             f.ShowDialog();
         }
     }
