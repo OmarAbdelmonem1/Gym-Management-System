@@ -4,10 +4,6 @@ using System.Linq;
 
 namespace WindowsFormsApp1.models
 {
-    public interface ISubscriptionObserver
-    {
-        void NotifySubscriptionExpiring(Subscription subscription);
-    }
 
     public abstract class Subscription
     {
@@ -19,7 +15,7 @@ namespace WindowsFormsApp1.models
         public double TotalPrice { get; set; }
         public string Status { get; set; }
         public List<Services> SelectedServices { get; set; } = new List<Services>();
-        private List<ISubscriptionObserver> observers = new List<ISubscriptionObserver>();
+
        
         // Constructor for Subscription class
         public Subscription()

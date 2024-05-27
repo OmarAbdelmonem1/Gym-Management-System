@@ -70,7 +70,8 @@
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\SubscriptionController.cs" />
     <Compile Include="DataBase\DBConnection.cs" />
-    <Compile Include="SESSION.cs" />
+    <Compile Include="models\Gym.cs" />
+    <Compile Include="Controller\SESSION.cs" />
     <Compile Include="views\DashBoardForms\CredentialsForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -123,8 +123,10 @@ namespace WindowsFormsApp1.Controllers
                 selectedServices.Add(new Services("Sauna", 50));
                 selectedServices.Add(new Services("Jacuzzi", 50));
             }
+            
 
             Subscription subscription = CreateSubscription(wantsPrivateCoach, selectedServices);
+            subscription.Status = "Active";
             subscription.EndDate = endDate;
 
             return subscription;
