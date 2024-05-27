@@ -68,89 +68,89 @@
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\SubscriptionController.cs" />
     <Compile Include="DataBase\DBConnection.cs" />
-    <Compile Include="views\Form1.cs">
+    <Compile Include="views\DashBoardForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="views\DashBoardForms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Form2.cs">
+    <Compile Include="views\DashBoardForms\DashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="views\DashBoardForms\DashBoardForm.Designer.cs">
+      <DependentUpon>DashBoardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\NotificationForm.cs">
+    <Compile Include="views\EquipmentForms\NotificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\NotificationForm.Designer.cs">
+    <Compile Include="views\EquipmentForms\NotificationForm.Designer.cs">
       <DependentUpon>NotificationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\CoachesTableForm.cs">
+    <Compile Include="views\CoachesForms\CoachesTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\CoachesTableForm.Designer.cs">
+    <Compile Include="views\CoachesForms\CoachesTableForm.Designer.cs">
       <DependentUpon>CoachesTableForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\CoachRegisterFor.cs">
+    <Compile Include="views\CoachesForms\CoachRegisterFor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\CoachRegisterFor.Designer.cs">
+    <Compile Include="views\CoachesForms\CoachRegisterFor.Designer.cs">
       <DependentUpon>CoachRegisterFor.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\EditSubscriptionForm.cs">
+    <Compile Include="views\SubscriptionForms\EditSubscriptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\EditSubscriptionForm.Designer.cs">
+    <Compile Include="views\SubscriptionForms\EditSubscriptionForm.Designer.cs">
       <DependentUpon>EditSubscriptionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\MemberRegisterForm.cs">
+    <Compile Include="views\MembersForms\MemberRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\MemberRegisterForm.Designer.cs">
+    <Compile Include="views\MembersForms\MemberRegisterForm.Designer.cs">
       <DependentUpon>MemberRegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\MembersTableForm.cs">
+    <Compile Include="views\MembersForms\MembersTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\MembersTableForm.Designer.cs">
+    <Compile Include="views\MembersForms\MembersTableForm.Designer.cs">
       <DependentUpon>MembersTableForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\SessionControl1.cs">
+    <Compile Include="views\SessionsForms\SessionControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="views\SessionControl1.Designer.cs">
+    <Compile Include="views\SessionsForms\SessionControl1.Designer.cs">
       <DependentUpon>SessionControl1.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\SessionDetailsForm.cs">
+    <Compile Include="views\SessionsForms\SessionDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\SessionDetailsForm.Designer.cs">
+    <Compile Include="views\SessionsForms\SessionDetailsForm.Designer.cs">
       <DependentUpon>SessionDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\SessionForm.cs">
+    <Compile Include="views\SessionsForms\SessionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\SessionForm.Designer.cs">
+    <Compile Include="views\SessionsForms\SessionForm.Designer.cs">
       <DependentUpon>SessionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\SessionMembersForm1.cs">
+    <Compile Include="views\SessionsForms\SessionMembersForm1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\SessionMembersForm1.Designer.cs">
+    <Compile Include="views\SessionsForms\SessionMembersForm1.Designer.cs">
       <DependentUpon>SessionMembersForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\SessionsCreationForm.cs">
+    <Compile Include="views\SessionsForms\SessionsCreationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\SessionsCreationForm.Designer.cs">
+    <Compile Include="views\SessionsForms\SessionsCreationForm.Designer.cs">
       <DependentUpon>SessionsCreationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Form5.cs">
+    <Compile Include="views\EquipmentForms\EquipmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="views\EquipmentForms\EquipmentForm.Designer.cs">
+      <DependentUpon>EquipmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="models\Coach.cs" />
     <Compile Include="models\Employee.cs" />
@@ -162,50 +162,50 @@
     <Compile Include="models\Subscription.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="views\SubscriptionDetailsForm.cs">
+    <Compile Include="views\SubscriptionForms\SubscriptionDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="views\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="views\DashBoardForms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="views\DashBoardForms\DashBoardForm.resx">
+      <DependentUpon>DashBoardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\NotificationForm.resx">
+    <EmbeddedResource Include="views\EquipmentForms\NotificationForm.resx">
       <DependentUpon>NotificationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\CoachesTableForm.resx">
+    <EmbeddedResource Include="views\CoachesForms\CoachesTableForm.resx">
       <DependentUpon>CoachesTableForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\CoachRegisterFor.resx">
+    <EmbeddedResource Include="views\CoachesForms\CoachRegisterFor.resx">
       <DependentUpon>CoachRegisterFor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\EditSubscriptionForm.resx">
+    <EmbeddedResource Include="views\SubscriptionForms\EditSubscriptionForm.resx">
       <DependentUpon>EditSubscriptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\MemberRegisterForm.resx">
+    <EmbeddedResource Include="views\MembersForms\MemberRegisterForm.resx">
       <DependentUpon>MemberRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\MembersTableForm.resx">
+    <EmbeddedResource Include="views\MembersForms\MembersTableForm.resx">
       <DependentUpon>MembersTableForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\SessionControl1.resx">
+    <EmbeddedResource Include="views\SessionsForms\SessionControl1.resx">
       <DependentUpon>SessionControl1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\SessionDetailsForm.resx">
+    <EmbeddedResource Include="views\SessionsForms\SessionDetailsForm.resx">
       <DependentUpon>SessionDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\SessionForm.resx">
+    <EmbeddedResource Include="views\SessionsForms\SessionForm.resx">
       <DependentUpon>SessionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\SessionMembersForm1.resx">
+    <EmbeddedResource Include="views\SessionsForms\SessionMembersForm1.resx">
       <DependentUpon>SessionMembersForm1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\SessionsCreationForm.resx">
+    <EmbeddedResource Include="views\SessionsForms\SessionsCreationForm.resx">
       <DependentUpon>SessionsCreationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="views\EquipmentForms\EquipmentForm.resx">
+      <DependentUpon>EquipmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -216,7 +216,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="views\SubscriptionDetailsForm.resx">
+    <EmbeddedResource Include="views\SubscriptionForms\SubscriptionDetailsForm.resx">
       <DependentUpon>SubscriptionDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
