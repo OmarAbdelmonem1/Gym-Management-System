@@ -44,6 +44,7 @@ namespace WindowsFormsApp1.views
         private PictureBox pictureBox5;
         private Button button6;
         private Button button8;
+        private Button button9;
         private Subscription curreentsub;
         public SubscriptionDetailsForm(Subscription subscription)
         {
@@ -85,6 +86,7 @@ namespace WindowsFormsApp1.views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubscriptionDetailsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -115,7 +117,7 @@ namespace WindowsFormsApp1.views
             this.label10 = new System.Windows.Forms.Label();
             this.lblCoachName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -128,6 +130,7 @@ namespace WindowsFormsApp1.views
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.pictureBox10);
             this.groupBox1.Controls.Add(this.button4);
@@ -145,6 +148,19 @@ namespace WindowsFormsApp1.views
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button8.Location = new System.Drawing.Point(83, 464);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(287, 63);
+            this.button8.TabIndex = 48;
+            this.button8.Text = "Credentials";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
@@ -160,7 +176,7 @@ namespace WindowsFormsApp1.views
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(83, 377);
+            this.button4.Location = new System.Drawing.Point(82, 377);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(287, 63);
             this.button4.TabIndex = 19;
@@ -459,18 +475,18 @@ namespace WindowsFormsApp1.views
             this.label11.Size = new System.Drawing.Size(0, 32);
             this.label11.TabIndex = 45;
             // 
-            // button8
+            // button9
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(83, 455);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(287, 63);
-            this.button8.TabIndex = 48;
-            this.button8.Text = "Credentials";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button9.Location = new System.Drawing.Point(86, 551);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(284, 63);
+            this.button9.TabIndex = 49;
+            this.button9.Text = "Logout";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // SubscriptionDetailsForm
             // 
@@ -604,6 +620,15 @@ namespace WindowsFormsApp1.views
             this.Hide();
             Form f = new CredentialsForm();
             f.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Hide();
+            Form f = new LoginForm();
+            f.ShowDialog();
+            SESSION.Clear();
         }
     }
 }

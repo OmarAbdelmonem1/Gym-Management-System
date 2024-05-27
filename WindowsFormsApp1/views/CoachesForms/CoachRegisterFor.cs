@@ -116,5 +116,14 @@ namespace WindowsFormsApp1.views
             Form f = new CredentialsForm();
             f.ShowDialog();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Hide();
+            Form f = new LoginForm();
+            f.ShowDialog();
+            SESSION.Clear();
+        }
     }
 }

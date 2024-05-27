@@ -49,6 +49,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -63,7 +64,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(347, 46);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(594, 249);
@@ -72,7 +73,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             // btnLoad
             // 
             this.btnLoad.Location = new System.Drawing.Point(347, 332);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(88, 28);
             this.btnLoad.TabIndex = 1;
@@ -83,7 +84,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(443, 332);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 28);
             this.btnAdd.TabIndex = 2;
@@ -94,7 +95,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(538, 332);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(88, 28);
             this.btnEdit.TabIndex = 3;
@@ -105,7 +106,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(634, 332);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(88, 28);
             this.btnDelete.TabIndex = 4;
@@ -116,7 +117,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(347, 406);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(370, 24);
             this.txtEmail.TabIndex = 5;
@@ -124,7 +125,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(347, 462);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(370, 24);
             this.txtPassword.TabIndex = 6;
@@ -152,6 +153,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.pictureBox10);
             this.groupBox1.Controls.Add(this.button5);
@@ -165,7 +167,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(2, 113);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 583);
+            this.groupBox1.Size = new System.Drawing.Size(312, 653);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -308,11 +310,24 @@ namespace WindowsFormsApp1.views.DashBoardForms
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(69, 577);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(237, 63);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Logout";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // CredentialsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1105, 693);
+            this.ClientSize = new System.Drawing.Size(1105, 765);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblPassword);
@@ -324,7 +339,7 @@ namespace WindowsFormsApp1.views.DashBoardForms
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CredentialsForm";
             this.Text = "CredentialsForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -353,5 +368,6 @@ namespace WindowsFormsApp1.views.DashBoardForms
         private PictureBox pictureBox1;
         private Button button1;
         private PictureBox pictureBox2;
+        private Button button7;
     }
 }

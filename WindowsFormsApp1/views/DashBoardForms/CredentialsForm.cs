@@ -195,5 +195,14 @@ namespace WindowsFormsApp1.views.DashBoardForms
         {
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Hide();
+            Form f = new LoginForm();
+            f.ShowDialog();
+            SESSION.Clear();
+        }
     }
 }

@@ -213,5 +213,14 @@ private void label6_Click(object sender, EventArgs e)
             Form f = new CredentialsForm();
             f.ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Hide();
+            Form f = new LoginForm();
+            f.ShowDialog();
+            SESSION.Clear();
+        }
     }
 }

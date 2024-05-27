@@ -142,5 +142,19 @@ namespace WindowsFormsApp1
             Form f = new CredentialsForm();
             f.ShowDialog();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Hide();
+            Form f = new LoginForm();
+            f.ShowDialog();
+            SESSION.Clear();
+        }
     }
 }
