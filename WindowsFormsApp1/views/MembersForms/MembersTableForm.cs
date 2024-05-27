@@ -13,6 +13,7 @@ namespace WindowsFormsApp1.views
         private MemberController memberController;
         private SubscriptionController subscriptionController;
         private DataTable originalDataTable;
+
         public MembersTableForm()
         {
             InitializeComponent();
@@ -31,16 +32,13 @@ namespace WindowsFormsApp1.views
             dataGridView1.DataSource = originalDataTable;
             AddButtonsToDataGridView();
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
-         
         }
 
         private void AddButtonsToDataGridView()
         {
-            // Add Edit and Delete buttons
             AddButtonColumn("Edit", "Edit");
             AddButtonColumn("Delete", "Delete");
 
-            // Style the existing subscriptions_id column as clickable links
             DataGridViewColumn subscriptionsIdColumn = dataGridView1.Columns["subscriptions_id"];
             if (subscriptionsIdColumn != null)
             {
@@ -49,7 +47,6 @@ namespace WindowsFormsApp1.views
                 subscriptionsIdColumn.DefaultCellStyle.Font = new System.Drawing.Font(dataGridView1.DefaultCellStyle.Font, System.Drawing.FontStyle.Underline);
             }
 
-            // Subscribe to CellContentClick event
             dataGridView1.CellContentClick += DataGridView1_CellContentClick;
         }
 
@@ -57,11 +54,13 @@ namespace WindowsFormsApp1.views
         {
             if (!dataGridView1.Columns.Contains(name))
             {
-                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                buttonColumn.Name = name;
-                buttonColumn.HeaderText = headerText;
-                buttonColumn.Text = headerText;
-                buttonColumn.UseColumnTextForButtonValue = true;
+                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn
+                {
+                    Name = name,
+                    HeaderText = headerText,
+                    Text = headerText,
+                    UseColumnTextForButtonValue = true
+                };
                 dataGridView1.Columns.Add(buttonColumn);
             }
         }
@@ -96,12 +95,13 @@ namespace WindowsFormsApp1.views
                 }
             }
         }
+
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                int memberId = Convert.ToInt32(row.Cells["memberId"].Value);
+                int memberId = Convert.ToInt32(row.Cells["MemberId"].Value);
                 string name = row.Cells["Name"].Value.ToString();
                 int age = Convert.ToInt32(row.Cells["Age"].Value);
                 string gender = row.Cells["Gender"].Value.ToString();
@@ -111,10 +111,8 @@ namespace WindowsFormsApp1.views
                 int subscriptionId = Convert.ToInt32(row.Cells["subscriptions_id"].Value);
 
                 Member member = new Member(memberId, name, age, gender, email, phoneNumber, address);
-              
 
                 memberController.UpdateMember(member);
-                LoadMembers(); // Reload members after updating
             }
         }
 
@@ -127,7 +125,7 @@ namespace WindowsFormsApp1.views
                 if (subscription != null)
                 {
                     SubscriptionDetailsForm subscriptionForm = new SubscriptionDetailsForm(subscription);
-                    subscriptionForm.ShowDialog(); // Display as modal dialog
+                    subscriptionForm.ShowDialog();
                 }
                 else
                 {
@@ -146,7 +144,7 @@ namespace WindowsFormsApp1.views
             if (confirmResult == DialogResult.Yes)
             {
                 memberController.DeleteMember(memberId);
-                LoadMembers(); // Reload members after deletion
+                LoadMembers();
             }
         }
 
@@ -156,10 +154,7 @@ namespace WindowsFormsApp1.views
 
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                // Create a filtered view of the original data table
                 DataView dataView = originalDataTable.DefaultView;
-
-                // Build a filter expression to match any column containing the search term
                 StringBuilder filterExpression = new StringBuilder();
                 bool firstColumn = true;
 
@@ -174,23 +169,16 @@ namespace WindowsFormsApp1.views
                     firstColumn = false;
                 }
 
-                // Apply the filter to the DataView
                 dataView.RowFilter = filterExpression.ToString();
-
-                // Update the DataGridView to display the filtered data
-                dataGridView1.DataSource = dataView.ToTable(); // Convert DataView back to DataTable
+                dataGridView1.DataSource = dataView;
             }
             else
             {
-                // If search term is empty, reset the DataGridView to show the original data
                 dataGridView1.DataSource = originalDataTable;
             }
         }
 
-        private void MembersTableForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void MembersTableForm_Load(object sender, EventArgs e) { }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -211,11 +199,6 @@ namespace WindowsFormsApp1.views
             this.Hide();
             Form form = new MembersTableForm();
             form.ShowDialog();
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -244,15 +227,6 @@ namespace WindowsFormsApp1.views
             this.Hide();
             Form f = new CredentialsForm();
             f.ShowDialog();
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Hide();
-            Form f = new LoginForm();
-            f.ShowDialog();
-            SESSION.Clear();
         }
     }
 }

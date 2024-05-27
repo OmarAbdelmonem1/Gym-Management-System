@@ -229,7 +229,7 @@ namespace WindowsFormsApp1.views
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(976, 667);
             this.dataGridView1.TabIndex = 14;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+           
             // 
             // label1
             // 
@@ -259,7 +259,7 @@ namespace WindowsFormsApp1.views
             this.button10.TabIndex = 27;
             this.button10.Text = "Logout";
             this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+       
             // 
             // MembersTableForm
             // 
