@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.views;
+using WindowsFormsApp1.views.DashBoardForms;
+
 
 namespace WindowsFormsApp1
 {

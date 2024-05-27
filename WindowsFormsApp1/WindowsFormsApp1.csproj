@@ -70,6 +70,13 @@
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\SubscriptionController.cs" />
     <Compile Include="DataBase\DBConnection.cs" />
+    <Compile Include="SESSION.cs" />
+    <Compile Include="views\DashBoardForms\CredentialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\DashBoardForms\CredentialsForm.Designer.cs">
+      <DependentUpon>CredentialsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\DashBoardForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +174,9 @@
     <Compile Include="views\SubscriptionForms\SubscriptionDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="views\DashBoardForms\CredentialsForm.resx">
+      <DependentUpon>CredentialsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\DashBoardForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

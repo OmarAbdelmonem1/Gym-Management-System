@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1.views;
+using WindowsFormsApp1.views.DashBoardForms;
 using WindowsFormsApp1.Controller;
 
 namespace WindowsFormsApp1
@@ -27,6 +28,10 @@ namespace WindowsFormsApp1
         public DashBoardForm()
         {
             InitializeComponent();
+            if(SESSION.UserRole== "Receptionist")
+            {
+                button6.Hide();
+            }
             checkInController = new CheckInController();
             dashboardController = new DashboardController();
 
@@ -260,6 +265,13 @@ namespace WindowsFormsApp1
         {
             this.Hide();
             Form f = new DashBoardForm();
+            f.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new CredentialsForm();
             f.ShowDialog();
         }
     }
