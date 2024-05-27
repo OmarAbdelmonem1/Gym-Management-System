@@ -93,62 +93,62 @@ namespace WindowsFormsApp1.Controller
 
 
         //Read (CRUD)
-    //     public DataTable GetEquipment()
-    //     {
-    //         DataTable dataTable = new DataTable();
+        public DataTable GetEquipment()
+        {
+            DataTable dataTable = new DataTable();
 
-    //         try
-    //         {
-    //             DBConnection dbConnection = DBConnection.GetInstance();
+            try
+            {
+                DBConnection dbConnection = DBConnection.GetInstance();
 
-    //             using (SqlConnection connection = dbConnection.GetConnection())
-    //             {
-    //                 string selectQuery = "SELECT * FROM Equipment";
+                using (SqlConnection connection = dbConnection.GetConnection())
+                {
+                    string selectQuery = "SELECT * FROM Equipment";
 
-    //                 using (SqlCommand command = new SqlCommand(selectQuery, connection))
-    //                 {
-    //                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-    //                     {
-    //                         adapter.Fill(dataTable);
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             MessageBox.Show("Error fetching equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    //         }
+                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                    {
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-    //         MaintenanceTeam maintenanceTeam = new MaintenanceTeam();
-    //         MaintenanceNotificationObserver notificationObserver = new MaintenanceNotificationObserver();
+            MaintenanceTeam maintenanceTeam = new MaintenanceTeam();
+            MaintenanceNotificationObserver notificationObserver = new MaintenanceNotificationObserver();
 
-    //         List<Equipment> equipmentList = new List<Equipment>();
-    //         bool isAnyEquipmentOverdue = false;
+            List<Equipment> equipmentList = new List<Equipment>();
+            bool isAnyEquipmentOverdue = false;
 
-    //         foreach (DataRow row in dataTable.Rows)
-    //         {
-    //             DateTime maintenanceDate = row.Field<DateTime>("MaintenanceDate");
-    //             int equipmentId = row.Field<int>("EquipmentID");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                DateTime maintenanceDate = row.Field<DateTime>("MaintenanceDate");
+                int equipmentId = row.Field<int>("EquipmentID");
 
-    //             Equipment equipment = new Equipment(maintenanceDate);
-    //             equipment.Attach(maintenanceTeam);
-    //             equipment.Attach(notificationObserver);
+                Equipment equipment = new Equipment(maintenanceDate);
+                equipment.Attach(maintenanceTeam);
+                equipment.Attach(notificationObserver);
 
-    //             if (equipment.IsMaintenanceOverdue())
-    //             {
-    //                 isAnyEquipmentOverdue = true;
-    //             }
+                if (equipment.IsMaintenanceOverdue())
+                {
+                    isAnyEquipmentOverdue = true;
+                }
 
-    //             equipmentList.Add(equipment);
-    //         }
+                equipmentList.Add(equipment);
+            }
 
-    //         if (isAnyEquipmentOverdue)
-    //         {
-    //             notificationObserver.NotifyMaintenanceOverdue("There are equipments that need maintenance.");
-    //         }
+            if (isAnyEquipmentOverdue)
+            {
+                notificationObserver.NotifyMaintenanceOverdue("There are equipments that need maintenance.");
+            }
 
-    //         return dataTable;
-    //     }
+            return dataTable;
+        }
 
 
 
@@ -166,41 +166,41 @@ namespace WindowsFormsApp1.Controller
 
 
 
-    //     // Method to delete equipment from the database
-    //     public void DeleteEquipmentFromDatabase(int equipmentId)
-    //     {
-    //         try
-    //         {
-    //             // Get the DBConnection instance through an instance of the Form5 class
-    //             DBConnection dbConnection = DBConnection.GetInstance();
+        // Method to delete equipment from the database
+        public void DeleteEquipmentFromDatabase(int equipmentId)
+        {
+            try
+            {
+                // Get the DBConnection instance through an instance of the Form5 class
+                DBConnection dbConnection = DBConnection.GetInstance();
 
-    //             using (SqlConnection connection = dbConnection.GetConnection())
-    //             {
-    //                 string deleteQuery = "DELETE FROM Equipment WHERE EquipmentID = @EquipmentId";
+                using (SqlConnection connection = dbConnection.GetConnection())
+                {
+                    string deleteQuery = "DELETE FROM Equipment WHERE EquipmentID = @EquipmentId";
 
-    //                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
-    //                 {
-    //                     command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+                    using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@EquipmentId", equipmentId);
 
 
-    //                     int rowsAffected = command.ExecuteNonQuery();
+                        int rowsAffected = command.ExecuteNonQuery();
 
-    //                     if (rowsAffected > 0)
-    //                     {
-    //                         MessageBox.Show("Equipment deleted from the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    //                     }
-    //                     else
-    //                     {
-    //                         MessageBox.Show("No equipment deleted from the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             MessageBox.Show("Error deleting equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    //         }
-    //     }
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Equipment deleted from the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No equipment deleted from the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting equipment from the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
 
@@ -216,47 +216,47 @@ namespace WindowsFormsApp1.Controller
 
 
 
-    //     //Update (CRUD)
-    //     public void UpdateEquipmentInDatabase(int equipmentId, string updatedName, string updatedType, string updatedModel, decimal updatedPrice)
-    //     {
-    //         try
-    //         {
-    //             // Get the DBConnection instance through an instance of the Form5 class
-    //             DBConnection dbConnection = DBConnection.GetInstance();
+        //Update (CRUD)
+        public void UpdateEquipmentInDatabase(int equipmentId, string updatedName, string updatedType, string updatedModel, decimal updatedPrice)
+        {
+            try
+            {
+                // Get the DBConnection instance through an instance of the Form5 class
+                DBConnection dbConnection = DBConnection.GetInstance();
 
-    //             using (SqlConnection connection = dbConnection.GetConnection())
-    //             {
-    //                 string updateQuery = @"
-    //             UPDATE Equipment
-    //             SET Name = @Name, Type = @Type, Model = @Model, Price = @Price
-    //             WHERE EquipmentID = @EquipmentId";
+                using (SqlConnection connection = dbConnection.GetConnection())
+                {
+                    string updateQuery = @"
+                UPDATE Equipment
+                SET Name = @Name, Type = @Type, Model = @Model, Price = @Price
+                WHERE EquipmentID = @EquipmentId";
 
-    //                 using (SqlCommand command = new SqlCommand(updateQuery, connection))
-    //                 {
-    //                     command.Parameters.AddWithValue("@Name", updatedName);
-    //                     command.Parameters.AddWithValue("@Type", updatedType);
-    //                     command.Parameters.AddWithValue("@Model", updatedModel);
-    //                     command.Parameters.AddWithValue("@Price", updatedPrice);
-    //                     command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", updatedName);
+                        command.Parameters.AddWithValue("@Type", updatedType);
+                        command.Parameters.AddWithValue("@Model", updatedModel);
+                        command.Parameters.AddWithValue("@Price", updatedPrice);
+                        command.Parameters.AddWithValue("@EquipmentId", equipmentId);
 
 
-    //                     int rowsAffected = command.ExecuteNonQuery();
-    //                     if (rowsAffected > 0)
-    //                     {
-    //                         MessageBox.Show("Equipment details updated in the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    //                     }
-    //                     else
-    //                     {
-    //                         MessageBox.Show("No equipment details updated in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             MessageBox.Show("Error updating equipment details in the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    //         }
-    //     }
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Equipment details updated in the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No equipment details updated in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating equipment details in the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
 
@@ -268,93 +268,93 @@ namespace WindowsFormsApp1.Controller
 
 
 
-    //     public void UpdateMaintenanceDateInDatabase(int equipmentId, DateTime updatedMaintenanceDate)
-    //     {
-    //         // Prepare the SQL update command
-    //         string updateQuery = "UPDATE Equipment SET MaintenanceDate = @UpdatedMaintenanceDate WHERE EquipmentID = @EquipmentId";
+        public void UpdateMaintenanceDateInDatabase(int equipmentId, DateTime updatedMaintenanceDate)
+        {
+            // Prepare the SQL update command
+            string updateQuery = "UPDATE Equipment SET MaintenanceDate = @UpdatedMaintenanceDate WHERE EquipmentID = @EquipmentId";
 
-    //         // Use DBConnection to get the connection
-    //         DBConnection dbConnection = DBConnection.GetInstance();
+            // Use DBConnection to get the connection
+            DBConnection dbConnection = DBConnection.GetInstance();
 
-    //         using (SqlConnection connection = dbConnection.GetConnection())
-    //         {
+            using (SqlConnection connection = dbConnection.GetConnection())
+            {
 
-    //             // Create the command
-    //             using (SqlCommand command = new SqlCommand(updateQuery, connection))
-    //             {
-    //                 // Add parameters to the command
-    //                 command.Parameters.AddWithValue("@UpdatedMaintenanceDate", updatedMaintenanceDate);
-    //                 command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+                // Create the command
+                using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                {
+                    // Add parameters to the command
+                    command.Parameters.AddWithValue("@UpdatedMaintenanceDate", updatedMaintenanceDate);
+                    command.Parameters.AddWithValue("@EquipmentId", equipmentId);
 
-    //                 // Execute the update command
-    //                 int rowsAffected = command.ExecuteNonQuery();
+                    // Execute the update command
+                    int rowsAffected = command.ExecuteNonQuery();
 
-    //                 // Check if the update was successful
-    //                 if (rowsAffected > 0)
-    //                 {
-    //                     Console.WriteLine("Maintenance date updated successfully in the database.");
-    //                 }
-    //                 else
-    //                 {
-    //                     Console.WriteLine("Failed to update maintenance date in the database.");
-    //                 }
-    //             }
-    //         }
-    //     }
+                    // Check if the update was successful
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine("Maintenance date updated successfully in the database.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to update maintenance date in the database.");
+                    }
+                }
+            }
+        }
 
 
 
 
 
-    //     public Equipment FindEquipmentById(int equipmentId)
-    //     {
-    //         Equipment equipment = null;
+        public Equipment FindEquipmentById(int equipmentId)
+        {
+            Equipment equipment = null;
 
-    //         try
-    //         {
-    //             // Get a database connection instance
-    //             DBConnection dbConnection = DBConnection.GetInstance();
+            try
+            {
+                // Get a database connection instance
+                DBConnection dbConnection = DBConnection.GetInstance();
 
-    //             // Open a connection to the database
-    //             using (SqlConnection connection = dbConnection.GetConnection())
-    //             {
-    //                 // Define the SQL query to select equipment by ID
-    //                 string selectQuery = "SELECT * FROM Equipment WHERE EquipmentID = @EquipmentId";
+                // Open a connection to the database
+                using (SqlConnection connection = dbConnection.GetConnection())
+                {
+                    // Define the SQL query to select equipment by ID
+                    string selectQuery = "SELECT * FROM Equipment WHERE EquipmentID = @EquipmentId";
 
-    //                 // Create a SqlCommand with the select query and connection
-    //                 using (SqlCommand command = new SqlCommand(selectQuery, connection))
-    //                 {
-    //                     // Add the equipment ID parameter to the command
-    //                     command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+                    // Create a SqlCommand with the select query and connection
+                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                    {
+                        // Add the equipment ID parameter to the command
+                        command.Parameters.AddWithValue("@EquipmentId", equipmentId);
 
-    //                     // Execute the command to retrieve the equipment data
-    //                     using (SqlDataReader reader = command.ExecuteReader())
-    //                     {
-    //                         // Check if data was retrieved
-    //                         if (reader.Read())
-    //                         {
-    //                             // Extract data from the reader and create an Equipment object
-    //                             string name = reader["Name"].ToString();
-    //                             string type = reader["Type"].ToString();
-    //                             string model = reader["Model"].ToString();
-    //                             decimal price = Convert.ToDecimal(reader["Price"]);
-    //                             DateTime maintenanceDate = Convert.ToDateTime(reader["MaintenanceDate"]);
+                        // Execute the command to retrieve the equipment data
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            // Check if data was retrieved
+                            if (reader.Read())
+                            {
+                                // Extract data from the reader and create an Equipment object
+                                string name = reader["Name"].ToString();
+                                string type = reader["Type"].ToString();
+                                string model = reader["Model"].ToString();
+                                decimal price = Convert.ToDecimal(reader["Price"]);
+                                DateTime maintenanceDate = Convert.ToDateTime(reader["MaintenanceDate"]);
 
-    //                             // Create the Equipment object
-    //                             equipment = new Equipment(name, type, model, price, maintenanceDate);
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             // Handle any exceptions, such as database connection errors
-    //             MessageBox.Show($"Error finding equipment by ID: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    //         }
+                                // Create the Equipment object
+                                equipment = new Equipment(name, type, model, price, maintenanceDate);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions, such as database connection errors
+                MessageBox.Show($"Error finding equipment by ID: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-    //         return equipment;
-    //     }
+            return equipment;
+        }
 
 
 
