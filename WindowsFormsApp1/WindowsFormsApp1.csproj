@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Controller\CheckInController.cs" />
     <Compile Include="Controller\CoachController.cs" />
+    <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\MemberController.cs" />
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\SubscriptionController.cs" />

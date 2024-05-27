@@ -257,6 +257,11 @@ namespace WindowsFormsApp1.views
             Form f = new DashBoardForm();
             f.ShowDialog();
         }
+
+        private void CoachesTableForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
