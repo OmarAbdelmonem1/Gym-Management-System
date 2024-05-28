@@ -125,5 +125,10 @@ namespace WindowsFormsApp1.views
             f.ShowDialog();
             SESSION.Clear();
         }
+
+        private void CoachRegisterFor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

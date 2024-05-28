@@ -2,14 +2,17 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using WindowsFormsApp1.Controller;
 
 namespace WindowsFormsApp1.views.DashBoardForms
 {
     public partial class CredentialsForm : Form
     {
+        private CredentialController credentialController;
         public CredentialsForm()
         {
             InitializeComponent();
+            credentialController = new CredentialController();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -21,14 +24,15 @@ namespace WindowsFormsApp1.views.DashBoardForms
         {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
+            string role = this.radioButton1.Checked ? "Manager" : "Receptionist";
 
-            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(role))
             {
                 MessageBox.Show("Email and Password cannot be empty.");
                 return;
             }
 
-            AddCredentials(email, password);
+            credentialController.AddCredentials(email, password, role);
             LoadData();
         }
 
@@ -50,7 +54,8 @@ namespace WindowsFormsApp1.views.DashBoardForms
             }
 
             int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
-            EditCredentials(id, email, password);
+            string role = dataGridView1.SelectedRows[0].Cells["Role"].Value.ToString();
+            credentialController.EditCredentials(id, email, password, role);
             LoadData();
         }
 
@@ -63,7 +68,8 @@ namespace WindowsFormsApp1.views.DashBoardForms
             }
 
             int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
-            DeleteCredentials(id);
+            string role = dataGridView1.SelectedRows[0].Cells["Role"].Value.ToString();
+            credentialController.DeleteCredentials(id, role);
             LoadData();
         }
 
@@ -81,70 +87,6 @@ namespace WindowsFormsApp1.views.DashBoardForms
 
                 dataGridView1.DataSource = dataTable;
 
-                DBConnection.GetInstance().CloseConnection(connection);
-            }
-        }
-
-        private void AddCredentials(string email, string password)
-        {
-            using (SqlConnection connection = DBConnection.GetInstance().GetConnection())
-            {
-                // For simplicity, this example adds to the Manager table. Adjust logic as needed.
-                string query = "INSERT INTO Manager (email, password) VALUES (@Email, @Password)";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Email", email);
-                command.Parameters.AddWithValue("@Password", password);
-                command.ExecuteNonQuery();
-                DBConnection.GetInstance().CloseConnection(connection);
-            }
-        }
-
-        private void EditCredentials(int id, string email, string password)
-        {
-            using (SqlConnection connection = DBConnection.GetInstance().GetConnection())
-            {
-                // Determine if the selected row is a Manager or Receptionist
-                string role = dataGridView1.SelectedRows[0].Cells["Role"].Value.ToString();
-                string query = "";
-
-                if (role == "Manager")
-                {
-                    query = "UPDATE Manager SET email = @Email, password = @Password WHERE manager_id = @ID";
-                }
-                else if (role == "Receptionist")
-                {
-                    query = "UPDATE Receptionist SET email = @Email, password = @Password WHERE receptionist_id = @ID";
-                }
-
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Email", email);
-                command.Parameters.AddWithValue("@Password", password);
-                command.Parameters.AddWithValue("@ID", id);
-                command.ExecuteNonQuery();
-                DBConnection.GetInstance().CloseConnection(connection);
-            }
-        }
-
-        private void DeleteCredentials(int id)
-        {
-            using (SqlConnection connection = DBConnection.GetInstance().GetConnection())
-            {
-                // Determine if the selected row is a Manager or Receptionist
-                string role = dataGridView1.SelectedRows[0].Cells["Role"].Value.ToString();
-                string query = "";
-
-                if (role == "Manager")
-                {
-                    query = "DELETE FROM Manager WHERE manager_id = @ID";
-                }
-                else if (role == "Receptionist")
-                {
-                    query = "DELETE FROM Receptionist WHERE receptionist_id = @ID";
-                }
-
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@ID", id);
-                command.ExecuteNonQuery();
                 DBConnection.GetInstance().CloseConnection(connection);
             }
         }
@@ -203,6 +145,11 @@ namespace WindowsFormsApp1.views.DashBoardForms
             Form f = new LoginForm();
             f.ShowDialog();
             SESSION.Clear();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
