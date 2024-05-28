@@ -77,7 +77,7 @@ namespace WindowsFormsApp1.views
             else
             {
                 // Hide or clear the coach's name label if the subscription is not Platinum
-                lblCoachName.Text = "";
+                lblCoachName.Text = "No Coach Assigned";
             }
 
         }
@@ -86,6 +86,7 @@ namespace WindowsFormsApp1.views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubscriptionDetailsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -117,7 +118,6 @@ namespace WindowsFormsApp1.views
             this.label10 = new System.Windows.Forms.Label();
             this.lblCoachName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -147,6 +147,19 @@ namespace WindowsFormsApp1.views
             this.groupBox1.Size = new System.Drawing.Size(373, 620);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button9.Location = new System.Drawing.Point(86, 551);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(284, 63);
+            this.button9.TabIndex = 49;
+            this.button9.Text = "Logout";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -311,14 +324,14 @@ namespace WindowsFormsApp1.views
             // 
             this.lblStartDate.Location = new System.Drawing.Point(601, 269);
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(759, 24);
+            this.lblStartDate.Size = new System.Drawing.Size(759, 22);
             this.lblStartDate.TabIndex = 29;
             // 
             // lblEndDate
             // 
             this.lblEndDate.Location = new System.Drawing.Point(601, 338);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(759, 24);
+            this.lblEndDate.Size = new System.Drawing.Size(759, 22);
             this.lblEndDate.TabIndex = 30;
             // 
             // lblTotalPrice
@@ -475,22 +488,9 @@ namespace WindowsFormsApp1.views
             this.label11.Size = new System.Drawing.Size(0, 32);
             this.label11.TabIndex = 45;
             // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.Location = new System.Drawing.Point(86, 551);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(284, 63);
-            this.button9.TabIndex = 49;
-            this.button9.Text = "Logout";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
             // SubscriptionDetailsForm
             // 
-            this.ClientSize = new System.Drawing.Size(1522, 729);
+            this.ClientSize = new System.Drawing.Size(1522, 697);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblCoachName);
             this.Controls.Add(this.label11);

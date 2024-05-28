@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SessionDetailsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -88,18 +88,31 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(-2, 108);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(326, 658);
+            this.groupBox1.Size = new System.Drawing.Size(373, 658);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button8.Location = new System.Drawing.Point(80, 553);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(286, 63);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "Logout";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(70, 465);
+            this.button6.Location = new System.Drawing.Point(80, 465);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(250, 63);
+            this.button6.Size = new System.Drawing.Size(286, 63);
             this.button6.TabIndex = 21;
             this.button6.Text = "Credentials";
             this.button6.UseVisualStyleBackColor = false;
@@ -110,7 +123,7 @@
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(0, 377);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(64, 74);
+            this.pictureBox10.Size = new System.Drawing.Size(73, 74);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 20;
             this.pictureBox10.TabStop = false;
@@ -120,9 +133,9 @@
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(69, 377);
+            this.button5.Location = new System.Drawing.Point(79, 377);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(251, 63);
+            this.button5.Size = new System.Drawing.Size(287, 63);
             this.button5.TabIndex = 19;
             this.button5.Text = "Coaches";
             this.button5.UseVisualStyleBackColor = false;
@@ -133,7 +146,7 @@
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(0, 286);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(64, 74);
+            this.pictureBox5.Size = new System.Drawing.Size(73, 74);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 18;
             this.pictureBox5.TabStop = false;
@@ -143,9 +156,9 @@
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(69, 297);
+            this.button4.Location = new System.Drawing.Point(79, 297);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(251, 63);
+            this.button4.Size = new System.Drawing.Size(287, 63);
             this.button4.TabIndex = 17;
             this.button4.Text = "Sessions";
             this.button4.UseVisualStyleBackColor = false;
@@ -156,7 +169,7 @@
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(0, 197);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(64, 74);
+            this.pictureBox4.Size = new System.Drawing.Size(73, 74);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
@@ -166,9 +179,9 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(69, 208);
+            this.button3.Location = new System.Drawing.Point(79, 208);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(251, 63);
+            this.button3.Size = new System.Drawing.Size(287, 63);
             this.button3.TabIndex = 7;
             this.button3.Text = "Manage Members";
             this.button3.UseVisualStyleBackColor = false;
@@ -179,7 +192,7 @@
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(0, 108);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(64, 74);
+            this.pictureBox3.Size = new System.Drawing.Size(73, 74);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
@@ -189,9 +202,9 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(69, 119);
+            this.button2.Location = new System.Drawing.Point(79, 119);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(251, 63);
+            this.button2.Size = new System.Drawing.Size(287, 63);
             this.button2.TabIndex = 5;
             this.button2.Text = "Equipments";
             this.button2.UseVisualStyleBackColor = false;
@@ -202,7 +215,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 21);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 74);
+            this.pictureBox1.Size = new System.Drawing.Size(73, 74);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -212,9 +225,9 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(69, 34);
+            this.button1.Location = new System.Drawing.Point(79, 34);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(251, 67);
+            this.button1.Size = new System.Drawing.Size(287, 67);
             this.button1.TabIndex = 2;
             this.button1.Text = "New Member";
             this.button1.UseVisualStyleBackColor = false;
@@ -225,7 +238,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(-2, -3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(326, 112);
+            this.pictureBox2.Size = new System.Drawing.Size(373, 112);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -251,9 +264,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtname);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(346, 12);
+            this.groupBox2.Location = new System.Drawing.Point(395, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(943, 679);
+            this.groupBox2.Size = new System.Drawing.Size(1078, 679);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Session Details";
@@ -262,18 +275,18 @@
             // 
             this.txtstart.CustomFormat = "hh:mm";
             this.txtstart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtstart.Location = new System.Drawing.Point(163, 370);
+            this.txtstart.Location = new System.Drawing.Point(186, 370);
             this.txtstart.Name = "txtstart";
             this.txtstart.ShowUpDown = true;
-            this.txtstart.Size = new System.Drawing.Size(176, 30);
+            this.txtstart.Size = new System.Drawing.Size(201, 30);
             this.txtstart.TabIndex = 32;
             // 
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(163, 222);
+            this.checkedListBox1.Location = new System.Drawing.Point(186, 222);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(665, 129);
+            this.checkedListBox1.Size = new System.Drawing.Size(759, 129);
             this.checkedListBox1.TabIndex = 31;
             // 
             // txtdes
@@ -282,7 +295,7 @@
             this.txtdes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtdes.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtdes.ForeColor = System.Drawing.Color.Black;
-            this.txtdes.Location = new System.Drawing.Point(13, 545);
+            this.txtdes.Location = new System.Drawing.Point(15, 545);
             this.txtdes.Name = "txtdes";
             this.txtdes.Size = new System.Drawing.Size(132, 27);
             this.txtdes.TabIndex = 30;
@@ -290,10 +303,10 @@
             // 
             // txtdesc
             // 
-            this.txtdesc.Location = new System.Drawing.Point(163, 495);
+            this.txtdesc.Location = new System.Drawing.Point(186, 495);
             this.txtdesc.Multiline = true;
             this.txtdesc.Name = "txtdesc";
-            this.txtdesc.Size = new System.Drawing.Size(667, 96);
+            this.txtdesc.Size = new System.Drawing.Size(762, 96);
             this.txtdesc.TabIndex = 29;
             // 
             // label5
@@ -302,7 +315,7 @@
             this.label5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(5, 438);
+            this.label5.Location = new System.Drawing.Point(6, 438);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(155, 27);
             this.label5.TabIndex = 28;
@@ -310,9 +323,9 @@
             // 
             // txtmax
             // 
-            this.txtmax.Location = new System.Drawing.Point(163, 438);
+            this.txtmax.Location = new System.Drawing.Point(186, 438);
             this.txtmax.Name = "txtmax";
-            this.txtmax.Size = new System.Drawing.Size(664, 30);
+            this.txtmax.Size = new System.Drawing.Size(759, 30);
             this.txtmax.TabIndex = 27;
             // 
             // txtendate
@@ -321,7 +334,7 @@
             this.txtendate.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtendate.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.txtendate.ForeColor = System.Drawing.Color.Black;
-            this.txtendate.Location = new System.Drawing.Point(516, 370);
+            this.txtendate.Location = new System.Drawing.Point(590, 370);
             this.txtendate.Name = "txtendate";
             this.txtendate.Size = new System.Drawing.Size(107, 27);
             this.txtendate.TabIndex = 26;
@@ -331,10 +344,10 @@
             // 
             this.txtend.CustomFormat = "hh:mm";
             this.txtend.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtend.Location = new System.Drawing.Point(652, 365);
+            this.txtend.Location = new System.Drawing.Point(745, 365);
             this.txtend.Name = "txtend";
             this.txtend.ShowUpDown = true;
-            this.txtend.Size = new System.Drawing.Size(176, 30);
+            this.txtend.Size = new System.Drawing.Size(201, 30);
             this.txtend.TabIndex = 25;
             // 
             // label4
@@ -343,7 +356,7 @@
             this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(5, 370);
+            this.label4.Location = new System.Drawing.Point(6, 370);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 27);
             this.label4.TabIndex = 24;
@@ -355,7 +368,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(5, 207);
+            this.label3.Location = new System.Drawing.Point(6, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 27);
             this.label3.TabIndex = 23;
@@ -367,7 +380,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(5, 147);
+            this.label2.Location = new System.Drawing.Point(6, 147);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 27);
             this.label2.TabIndex = 21;
@@ -376,9 +389,9 @@
             // txtcoach
             // 
             this.txtcoach.FormattingEnabled = true;
-            this.txtcoach.Location = new System.Drawing.Point(163, 154);
+            this.txtcoach.Location = new System.Drawing.Point(186, 154);
             this.txtcoach.Name = "txtcoach";
-            this.txtcoach.Size = new System.Drawing.Size(665, 33);
+            this.txtcoach.Size = new System.Drawing.Size(759, 33);
             this.txtcoach.TabIndex = 20;
             // 
             // button7
@@ -386,9 +399,9 @@
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(-4, 614);
+            this.button7.Location = new System.Drawing.Point(-5, 614);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(205, 65);
+            this.button7.Size = new System.Drawing.Size(234, 65);
             this.button7.TabIndex = 17;
             this.button7.Text = "Back";
             this.button7.UseVisualStyleBackColor = false;
@@ -398,9 +411,9 @@
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEdit.Location = new System.Drawing.Point(738, 614);
+            this.btnEdit.Location = new System.Drawing.Point(843, 614);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(205, 65);
+            this.btnEdit.Size = new System.Drawing.Size(234, 65);
             this.btnEdit.TabIndex = 13;
             this.btnEdit.Text = "Submit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -412,7 +425,7 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Arial Black", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(5, 83);
+            this.label1.Location = new System.Drawing.Point(6, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 27);
             this.label1.TabIndex = 1;
@@ -422,30 +435,17 @@
             // 
             this.txtname.BackColor = System.Drawing.Color.White;
             this.txtname.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtname.Location = new System.Drawing.Point(163, 90);
+            this.txtname.Location = new System.Drawing.Point(186, 90);
             this.txtname.Multiline = true;
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(665, 37);
+            this.txtname.Size = new System.Drawing.Size(759, 37);
             this.txtname.TabIndex = 0;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(12)))));
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(70, 553);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(250, 63);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "Logout";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // SessionDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 752);
+            this.ClientSize = new System.Drawing.Size(1522, 697);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox2);

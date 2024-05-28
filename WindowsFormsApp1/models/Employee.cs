@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.models
 {
@@ -16,9 +12,11 @@ namespace WindowsFormsApp1.models
         public double Salary { get; set; }
         public int WorkingDays { get; set; }
         public string Address { get; set; }
-        public Employee(int it,string name, int age, string gender, string contactNumber, double salary, int workingDays, string address)
+
+        // Full constructor
+        public Employee(int id, string name, int age, string gender, string contactNumber, double salary, int workingDays, string address)
         {
-            id = it;
+            id = id;
             Name = name;
             Age = age;
             Gender = gender;
@@ -28,11 +26,20 @@ namespace WindowsFormsApp1.models
             Address = address;
         }
 
+        // Constructor with id and name
         protected Employee(int id, string name)
         {
-            this.id = id;
+            id = id;
             Name = name;
         }
+
+        // Default constructor
         public Employee() { }
+
+        // Method to calculate total salary
+        public virtual double CalculateTotalSalary()
+        {
+            return Salary * WorkingDays;
+        }
     }
 }

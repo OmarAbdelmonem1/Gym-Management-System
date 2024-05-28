@@ -150,23 +150,6 @@ namespace WindowsFormsApp1.Controller
             return dataTable;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // Method to delete equipment from the database
         public void DeleteEquipmentFromDatabase(int equipmentId)
         {
             try

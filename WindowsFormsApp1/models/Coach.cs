@@ -25,5 +25,9 @@ namespace WindowsFormsApp1.models
         public Coach()
         {
         }
+        public virtual double CalculateTotalSalary()
+        {
+            return Salary * WorkingDays+ private_training_cost;
+        }
     }
 }

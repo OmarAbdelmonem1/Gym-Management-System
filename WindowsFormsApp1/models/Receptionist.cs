@@ -12,6 +12,9 @@ namespace WindowsFormsApp1.models
             : base(it, name, age, gender, contactNumber, salary, workingDays, address)
         {
         }
-
+        public virtual double CalculateTotalSalary()
+        {
+            return Salary * WorkingDays;
+        }
     }
 }

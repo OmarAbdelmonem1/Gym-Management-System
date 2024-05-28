@@ -61,6 +61,7 @@ namespace WindowsFormsApp1
 
             CreateMemberAndSubscription();
             SubscriptionDetailsForm s = new SubscriptionDetailsForm(currentsub);
+            this.Hide();
             s.ShowDialog ();
         }
 
@@ -131,6 +132,9 @@ private void label6_Click(object sender, EventArgs e)
 
         private void button7_Click(object sender, EventArgs e)
         {
+            this.Hide();
+           MembersTableForm f= new MembersTableForm();
+            f.ShowDialog();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
