@@ -221,10 +221,19 @@ namespace WindowsFormsApp1
         {
             if (int.TryParse(txtMemberId.Text, out int memberId))
             {
-                checkInController.CheckInMember(memberId);
-                this.Hide();
-                Form form = new DashBoardForm();
-                form.ShowDialog();
+                
+                Console.WriteLine(dashboardController.FetchTotalCheckin());
+                if (dashboardController.FetchTotalCheckin() >= 4)
+                {
+                    MessageBox.Show("Limit Reached come later ", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    checkInController.CheckInMember(memberId);
+                    this.Hide();
+                    Form form = new DashBoardForm();
+                    form.ShowDialog();
+                }
             }
             else
             {
