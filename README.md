@@ -56,25 +56,10 @@ The Gym Management System is designed to streamline the day-to-day operations of
 
 ### Project Structure
 - **Controllers**: Business logic for different modules
-  - CoachController
-  - DashboardController
-  - EquipmentController
-  - And more...
 
 - **Models**: Data models representing business entities
-  - Member
-  - Coach
-  - Equipment
-  - Sessions
-  - Subscription
-  - And more...
 
 - **Views**: User interface forms organized by functionality
-  - DashboardForms
-  - EquipmentForms
-  - MembersForms
-  - SessionsForms
-  - SubscriptionForms
   ## Screenshots
 
 ### Login and Authentication
