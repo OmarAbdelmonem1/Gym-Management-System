@@ -53,7 +53,9 @@ The Gym Management System is designed to streamline the day-to-day operations of
 - **UI**: Windows Forms
 - **Database**: SQL Server
 - **Language**: C#
-
+### T Design Patterns
+Observer Pattern — Used for notifying relevant components when important changes occur, such as equipment issues.
+Factory Pattern — Used to create objects based on the required type while keeping object creation separate from the main business logic.
 ### Project Structure
 - **Controllers**: Business logic for different modules
 
