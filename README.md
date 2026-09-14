@@ -1,78 +1,84 @@
 # Gym Management System
 
-A comprehensive Windows Forms application for managing gym operations, including member registrations, subscriptions, sessions, equipment, and staff.
-
-## Overview
-
-The Gym Management System is designed to streamline the day-to-day operations of fitness centers and gyms. It provides a user-friendly interface for managing various aspects of gym management, from member registrations to equipment tracking.
+A Windows Forms application for managing gym operations, including members, subscriptions, sessions, equipment, and staff.
 
 ## Features
 
 ### Member Management
-- Register new members
-- View and update member profiles
-- Track membership status and history
-- Manage member subscriptions
+
+* Register and manage members
+* Track membership status and history
+* Manage subscriptions
 
 ### Subscription Management
-- Create and manage different subscription plans
-- Track subscription renewals and payments
-- Generate subscription reports
+
+* Create and manage subscription plans
+* Track renewals and payments
+* Generate reports
 
 ### Session Management
-- Create and schedule fitness sessions
-- Assign coaches to sessions
-- Track session attendance
-- Manage session capacity
+
+* Schedule fitness sessions
+* Assign coaches
+* Track attendance and capacity
 
 ### Equipment Management
-- Track gym equipment inventory
-- Monitor equipment maintenance
-- Receive notifications for equipment issues
-- Generate equipment reports
+
+* Track equipment inventory
+* Monitor equipment maintenance
+* Receive notifications for equipment issues
 
 ### Staff Management
-- Manage coaches and receptionists
-- Track employee information
-- Assign roles and responsibilities
+
+* Manage coaches and receptionists
+* Track employee information
+* Assign roles and responsibilities
 
 ### Dashboard
-- View key metrics and statistics
-- Monitor gym performance
-- Access quick links to common functions
+
+* View key metrics and statistics
+* Monitor gym performance
+* Access quick links
 
 ### Authentication
-- Secure login system
-- Role-based access control
-- Credential management
 
-## Technical Details
+* Secure login system
+* Role-based access control
 
-### Technology Stack
-- **Framework**: .NET Framework
-- **UI**: Windows Forms
-- **Database**: SQL Server
-- **Language**: C#
-### T Design Patterns
-Observer Pattern — Used for notifying relevant components when important changes occur, such as equipment issues.
-Factory Pattern — Used to create objects based on the required type while keeping object creation separate from the main business logic.
-### Project Structure
-- **Controllers**: Business logic for different modules
+## Technology Stack
 
-- **Models**: Data models representing business entities
+* **Language:** C#
+* **Framework:** .NET Framework 4.7.2
+* **UI:** Windows Forms
+* **Database:** SQL Server
 
-- **Views**: User interface forms organized by functionality
-  ## Screenshots
+## Design Patterns
 
-### Login and Authentication
+* **Observer Pattern** — Used to notify relevant components when important changes occur, such as equipment issues.
+* **Factory Pattern** — Used to create objects based on their required type while keeping object creation separate from the main business logic.
+
+## Project Structure
+
+```text
+WindowsFormsApp1/
+├── Controllers/    # Business logic
+├── Models/         # Data models
+├── Views/          # Windows Forms UI
+└── Images/         # Application images
+```
+
+## Screenshots
+
+### Login
+
 ![Login Screen](WindowsFormsApp1/Images/LoginForm.jpg)
-*Secure login interface 
 
 ### Dashboard
-![Dashboard](WindowsFormsApp1/Images/Home.jpg)
-*Main dashboard showing key metrics and quick access to all system functions*
-## Installation Requirements
 
-- .NET Framework 4.7.2
-- SQL Server Express
-- Visual Studio 2017 or later (for development)
+![Dashboard](WindowsFormsApp1/Images/Home.jpg)
+
+## Requirements
+
+* .NET Framework 4.7.2
+* SQL Server Express
+* Visual Studio 2017 or later
